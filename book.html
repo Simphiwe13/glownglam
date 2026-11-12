@@ -1,0 +1,1328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>GlowUp - Beauty Agent Booking</title>
+
+
+    <style>
+
+        :root {
+
+            --primary: #db2777;
+            --primary-hover: #be185d;
+            --background: #fdf2f8;
+            --card-bg: #ffffff;
+            --text: #1f2937;
+            --border: #e5e7eb;
+
+        }
+
+
+        * {
+
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family:
+                'Segoe UI',
+                system-ui,
+                sans-serif;
+
+        }
+
+
+        body {
+
+            background-color:
+                var(--background);
+
+            color: var(--text);
+
+            padding:
+                2rem 1rem;
+
+        }
+
+
+        .container {
+
+            max-width: 600px;
+
+            margin: 0 auto;
+
+            background:
+                var(--card-bg);
+
+            padding:
+                2rem;
+
+            border-radius:
+                1rem;
+
+            box-shadow:
+                0 10px 15px -3px
+                rgba(0, 0, 0, 0.1);
+
+        }
+
+
+        h1 {
+
+            text-align: center;
+
+            color:
+                var(--primary);
+
+            margin-bottom:
+                0.5rem;
+
+        }
+
+
+        p.subtitle {
+
+            text-align: center;
+
+            color: #6b7280;
+
+            margin-bottom:
+                2rem;
+
+        }
+
+
+        .form-group {
+
+            margin-bottom:
+                1.25rem;
+
+        }
+
+
+        label {
+
+            display: block;
+
+            font-weight: 600;
+
+            margin-bottom:
+                0.5rem;
+
+            font-size:
+                0.9rem;
+
+        }
+
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding:
+                0.75rem;
+
+            border:
+                1px solid var(--border);
+
+            border-radius:
+                0.5rem;
+
+            font-size:
+                1rem;
+
+            outline: none;
+
+            transition:
+                border 0.2s;
+
+            background:
+                white;
+
+        }
+
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color:
+                var(--primary);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(219, 39, 119, 0.1);
+
+        }
+
+
+        select:disabled,
+        input:disabled {
+
+            background:
+                #f3f4f6;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        .grid {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap:
+                1rem;
+
+        }
+
+
+        button {
+
+            width: 100%;
+
+            background-color:
+                var(--primary);
+
+            color: white;
+
+            border: none;
+
+            padding:
+                1rem;
+
+            border-radius:
+                0.5rem;
+
+            font-size:
+                1rem;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition:
+                background 0.2s;
+
+            margin-top:
+                1rem;
+
+        }
+
+
+        button:hover {
+
+            background-color:
+                var(--primary-hover);
+
+        }
+
+
+        button:disabled {
+
+            background-color:
+                #9ca3af;
+
+            cursor:
+                not-allowed;
+
+        }
+
+
+        .message {
+
+            padding:
+                1rem;
+
+            margin-top:
+                1rem;
+
+            border-radius:
+                0.5rem;
+
+            display: none;
+
+            text-align: center;
+
+            font-weight: 600;
+
+        }
+
+
+        .success {
+
+            background-color:
+                #d1fae5;
+
+            color:
+                #065f46;
+
+            display:
+                block;
+
+        }
+
+
+        .error {
+
+            background-color:
+                #fee2e2;
+
+            color:
+                #991b1b;
+
+            display:
+                block;
+
+        }
+
+
+        .loading {
+
+            color:
+                #6b7280;
+
+            font-size:
+                0.9rem;
+
+            margin-top:
+                0.4rem;
+
+        }
+
+
+        .booking-reference {
+
+            font-size:
+                1.1rem;
+
+            margin-top:
+                0.5rem;
+
+        }
+
+
+        @media (max-width: 500px) {
+
+            .grid {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+            .container {
+
+                padding:
+                    1.25rem;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <h1>
+        Book a Beauty Agent
+    </h1>
+
+
+    <p class="subtitle">
+        Secure your glow-up session in seconds
+    </p>
+
+
+    <form id="bookingForm">
+
+
+        <!-- NAME -->
+
+        <div class="form-group">
+
+            <label for="clientName">
+                Full Name
+            </label>
+
+            <input
+                type="text"
+                id="clientName"
+                required
+                placeholder="Jane Doe">
+
+        </div>
+
+
+        <!-- EMAIL -->
+
+        <div class="form-group">
+
+            <label for="clientEmail">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="clientEmail"
+                required
+                placeholder="jane@example.com">
+
+        </div>
+
+
+        <!-- PHONE -->
+
+        <div class="form-group">
+
+            <label for="clientPhone">
+                Phone Number
+            </label>
+
+            <input
+                type="tel"
+                id="clientPhone"
+                required
+                placeholder="082 123 4567">
+
+        </div>
+
+
+        <!-- SERVICE -->
+
+        <div class="form-group">
+
+            <label for="service">
+
+                Select Service
+
+            </label>
+
+            <select
+                id="service"
+                required>
+
+                <option value="">
+                    Loading services...
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- DATE -->
+
+        <div class="form-group">
+
+            <label for="bookingDate">
+                Date
+            </label>
+
+            <input
+                type="date"
+                id="bookingDate"
+                required>
+
+        </div>
+
+
+        <!-- TIME -->
+
+        <div class="form-group">
+
+            <label for="bookingTime">
+                Time Slot
+            </label>
+
+            <select
+                id="bookingTime"
+                required
+                disabled>
+
+                <option value="">
+                    Select a date first
+                </option>
+
+            </select>
+
+            <div
+                id="timeLoading"
+                class="loading">
+            </div>
+
+        </div>
+
+
+        <!-- AGENT -->
+
+        <div class="form-group">
+
+            <label for="agent">
+
+                Preferred Agent
+
+            </label>
+
+            <select
+                id="agent"
+                required
+                disabled>
+
+                <option value="">
+                    Select a time first
+                </option>
+
+            </select>
+
+            <div
+                id="agentLoading"
+                class="loading">
+            </div>
+
+        </div>
+
+
+        <!-- NOTES -->
+
+        <div class="form-group">
+
+            <label for="specialNotes">
+
+                Special Requests /
+                Notes (Optional)
+
+            </label>
+
+            <textarea
+                id="specialNotes"
+                rows="3"
+                placeholder="Allergies, specific style references, etc.">
+            </textarea>
+
+        </div>
+
+
+        <button
+            type="submit"
+            id="submitBtn">
+
+            Confirm Booking
+
+        </button>
+
+
+    </form>
+
+
+    <div
+        id="statusMessage"
+        class="message">
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+/* =========================================================
+   GLOBAL DATA
+   ========================================================= */
+
+let services = [];
+
+let agents = [];
+
+let times = [];
+
+
+/* =========================================================
+   ELEMENTS
+   ========================================================= */
+
+const bookingForm =
+    document.getElementById(
+        'bookingForm'
+    );
+
+const serviceSelect =
+    document.getElementById(
+        'service'
+    );
+
+const dateInput =
+    document.getElementById(
+        'bookingDate'
+    );
+
+const timeSelect =
+    document.getElementById(
+        'bookingTime'
+    );
+
+const agentSelect =
+    document.getElementById(
+        'agent'
+    );
+
+const submitBtn =
+    document.getElementById(
+        'submitBtn'
+    );
+
+const statusMessage =
+    document.getElementById(
+        'statusMessage'
+    );
+
+const timeLoading =
+    document.getElementById(
+        'timeLoading'
+    );
+
+const agentLoading =
+    document.getElementById(
+        'agentLoading'
+    );
+
+
+/* =========================================================
+   MINIMUM DATE
+   ========================================================= */
+
+dateInput.min =
+    new Date()
+        .toISOString()
+        .split('T')[0];
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+window.addEventListener(
+    'load',
+    loadBookingData
+);
+
+
+function loadBookingData() {
+
+    serviceSelect.innerHTML =
+        '<option value="">Loading...</option>';
+
+
+    google.script.run
+
+        .withSuccessHandler(
+            function(data) {
+
+                services =
+                    data.services || [];
+
+                agents =
+                    data.agents || [];
+
+                times =
+                    data.times || [];
+
+
+                populateServices();
+
+
+            }
+        )
+
+        .withFailureHandler(
+            function(error) {
+
+                showError(
+                    'Unable to load booking information. ' +
+                    error.message
+                );
+
+            }
+        )
+
+        .getBookingData();
+}
+
+
+/* =========================================================
+   SERVICES
+   ========================================================= */
+
+function populateServices() {
+
+    serviceSelect.innerHTML =
+        '<option value="">-- Choose a service --</option>';
+
+
+    services.forEach(
+        function(service) {
+
+            const option =
+                document.createElement(
+                    'option'
+                );
+
+            option.value =
+                service.id;
+
+            option.textContent =
+                service.name +
+                ' (R' +
+                service.price +
+                ')';
+
+            serviceSelect.appendChild(
+                option
+            );
+
+        }
+    );
+}
+
+
+/* =========================================================
+   DATE CHANGE
+   ========================================================= */
+
+dateInput.addEventListener(
+    'change',
+    function() {
+
+        resetAgent();
+
+        const date =
+            dateInput.value;
+
+
+        if (!date) {
+
+            resetTime();
+
+            return;
+        }
+
+
+        timeLoading.textContent =
+            'Checking available times...';
+
+
+        timeSelect.disabled =
+            true;
+
+
+        google.script.run
+
+            .withSuccessHandler(
+                function(availableTimes) {
+
+                    timeLoading.textContent =
+                        '';
+
+                    populateTimes(
+                        availableTimes
+                    );
+
+                }
+            )
+
+            .withFailureHandler(
+                function(error) {
+
+                    timeLoading.textContent =
+                        '';
+
+                    resetTime();
+
+                    showError(
+                        error.message
+                    );
+
+                }
+            )
+
+            .getAvailableTimes(date);
+
+    }
+);
+
+
+/* =========================================================
+   POPULATE TIMES
+   ========================================================= */
+
+function populateTimes(
+    availableTimes
+) {
+
+    timeSelect.innerHTML =
+        '<option value="">-- Select Time --</option>';
+
+
+    if (
+        !availableTimes ||
+        availableTimes.length === 0
+    ) {
+
+        timeSelect.innerHTML =
+            '<option value="">No times available</option>';
+
+        timeSelect.disabled =
+            true;
+
+        return;
+    }
+
+
+    availableTimes.forEach(
+        function(time) {
+
+            const option =
+                document.createElement(
+                    'option'
+                );
+
+            option.value =
+                time;
+
+            option.textContent =
+                convertTimeToDisplay(
+                    time
+                );
+
+            timeSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    timeSelect.disabled =
+        false;
+}
+
+
+/* =========================================================
+   TIME CHANGE
+   ========================================================= */
+
+timeSelect.addEventListener(
+    'change',
+    function() {
+
+        resetAgent();
+
+        const date =
+            dateInput.value;
+
+        const time =
+            timeSelect.value;
+
+
+        if (!date || !time) {
+
+            return;
+        }
+
+
+        agentLoading.textContent =
+            'Checking available agents...';
+
+
+        agentSelect.disabled =
+            true;
+
+
+        google.script.run
+
+            .withSuccessHandler(
+                function(
+                    availableAgents
+                ) {
+
+                    agentLoading.textContent =
+                        '';
+
+                    populateAgents(
+                        availableAgents
+                    );
+
+                }
+            )
+
+            .withFailureHandler(
+                function(error) {
+
+                    agentLoading.textContent =
+                        '';
+
+                    resetAgent();
+
+                    showError(
+                        error.message
+                    );
+
+                }
+            )
+
+            .getAvailableAgents(
+                date,
+                time
+            );
+
+    }
+);
+
+
+/* =========================================================
+   POPULATE AGENTS
+   ========================================================= */
+
+function populateAgents(
+    availableAgents
+) {
+
+    agentSelect.innerHTML =
+        '<option value="">-- Choose an expert --</option>';
+
+
+    if (
+        !availableAgents ||
+        availableAgents.length === 0
+    ) {
+
+        agentSelect.innerHTML =
+            '<option value="">No agents available</option>';
+
+        agentSelect.disabled =
+            true;
+
+        return;
+    }
+
+
+    /*
+     * "Any Available Agent"
+     */
+
+    const anyOption =
+        document.createElement(
+            'option'
+        );
+
+    anyOption.value =
+        'Any Available Agent';
+
+    anyOption.textContent =
+        'Any Available Agent';
+
+    agentSelect.appendChild(
+        anyOption
+    );
+
+
+    /*
+     * Individual agents
+     */
+
+    availableAgents.forEach(
+        function(agent) {
+
+            const option =
+                document.createElement(
+                    'option'
+                );
+
+            option.value =
+                agent.name;
+
+            option.textContent =
+                agent.name +
+                ' (' +
+                agent.specialty +
+                ')';
+
+            agentSelect.appendChild(
+                option
+            );
+
+        }
+    );
+
+
+    agentSelect.disabled =
+        false;
+}
+
+
+/* =========================================================
+   FORM SUBMISSION
+   ========================================================= */
+
+bookingForm.addEventListener(
+    'submit',
+    function(e) {
+
+        e.preventDefault();
+
+
+        clearMessage();
+
+
+        const selectedService =
+            services.find(
+                function(service) {
+
+                    return service.id ===
+                        serviceSelect.value;
+
+                }
+            );
+
+
+        if (!selectedService) {
+
+            showError(
+                'Please select a service.'
+            );
+
+            return;
+        }
+
+
+        const bookingData = {
+
+            clientName:
+                document
+                    .getElementById(
+                        'clientName'
+                    )
+                    .value
+                    .trim(),
+
+            clientEmail:
+                document
+                    .getElementById(
+                        'clientEmail'
+                    )
+                    .value
+                    .trim(),
+
+            clientPhone:
+                document
+                    .getElementById(
+                        'clientPhone'
+                    )
+                    .value
+                    .trim(),
+
+            serviceId:
+                selectedService.id,
+
+            serviceName:
+                selectedService.name,
+
+            servicePrice:
+                selectedService.price,
+
+            agent:
+                agentSelect.value,
+
+            bookingDate:
+                dateInput.value,
+
+            bookingTime:
+                timeSelect.value,
+
+            specialNotes:
+                document
+                    .getElementById(
+                        'specialNotes'
+                    )
+                    .value
+                    .trim()
+
+        };
+
+
+        if (!bookingData.agent) {
+
+            showError(
+                'Please select an agent.'
+            );
+
+            return;
+        }
+
+
+        submitBtn.disabled =
+            true;
+
+        submitBtn.textContent =
+            'Processing Booking...';
+
+
+        google.script.run
+
+            .withSuccessHandler(
+                function(response) {
+
+                    submitBtn.disabled =
+                        false;
+
+                    submitBtn.textContent =
+                        'Confirm Booking';
+
+
+                    if (
+                        response &&
+                        response.success
+                    ) {
+
+                        statusMessage.innerHTML =
+                            'Thank you! Your booking request has been received.' +
+                            '<div class="booking-reference">' +
+                            'Booking Reference: <strong>' +
+                            response.bookingId +
+                            '</strong><br>' +
+                            'Agent: <strong>' +
+                            response.agent +
+                            '</strong>' +
+                            '</div>';
+
+
+                        statusMessage.className =
+                            'message success';
+
+
+                        bookingForm.reset();
+
+
+                        resetTime();
+
+                        resetAgent();
+
+                    }
+
+                    else {
+
+                        showError(
+                            response.message
+                        );
+
+                        /*
+                         * Refresh availability in case
+                         * another customer booked the
+                         * slot while this customer
+                         * was filling out the form.
+                         */
+
+                        refreshAvailability();
+
+                    }
+
+                }
+            )
+
+            .withFailureHandler(
+                function(error) {
+
+                    submitBtn.disabled =
+                        false;
+
+                    submitBtn.textContent =
+                        'Confirm Booking';
+
+
+                    showError(
+                        'Booking failed: ' +
+                        error.message
+                    );
+
+
+                    refreshAvailability();
+
+                }
+            )
+
+            .saveBooking(
+                bookingData
+            );
+
+    }
+);
+
+
+/* =========================================================
+   REFRESH AVAILABILITY
+   ========================================================= */
+
+function refreshAvailability() {
+
+    const date =
+        dateInput.value;
+
+
+    if (!date) {
+
+        resetTime();
+
+        return;
+    }
+
+
+    google.script.run
+
+        .withSuccessHandler(
+            function(availableTimes) {
+
+                populateTimes(
+                    availableTimes
+                );
+
+                resetAgent();
+
+            }
+        )
+
+        .getAvailableTimes(
+            date
+        );
+}
+
+
+/* =========================================================
+   RESET TIME
+   ========================================================= */
+
+function resetTime() {
+
+    timeSelect.innerHTML =
+        '<option value="">Select a date first</option>';
+
+    timeSelect.disabled =
+        true;
+
+    timeLoading.textContent =
+        '';
+
+}
+
+
+/* =========================================================
+   RESET AGENT
+   ========================================================= */
+
+function resetAgent() {
+
+    agentSelect.innerHTML =
+        '<option value="">Select a time first</option>';
+
+    agentSelect.disabled =
+        true;
+
+    agentLoading.textContent =
+        '';
+
+}
+
+
+/* =========================================================
+   TIME DISPLAY
+   ========================================================= */
+
+function convertTimeToDisplay(
+    time
+) {
+
+    const parts =
+        time.split(':');
+
+    let hour =
+        parseInt(
+            parts[0],
+            10
+        );
+
+    const minutes =
+        parts[1];
+
+    const period =
+        hour >= 12
+            ? 'PM'
+            : 'AM';
+
+
+    hour =
+        hour % 12 || 12;
+
+
+    return (
+        String(hour) +
+        ':' +
+        minutes +
+        ' ' +
+        period
+    );
+}
+
+
+/* =========================================================
+   MESSAGES
+   ========================================================= */
+
+function showError(
+    message
+) {
+
+    statusMessage.textContent =
+        message;
+
+    statusMessage.className =
+        'message error';
+
+}
+
+
+function clearMessage() {
+
+    statusMessage.textContent =
+        '';
+
+    statusMessage.className =
+        'message';
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
