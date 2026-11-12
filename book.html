@@ -1,549 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>GlowUp - Beauty Agent Booking</title>
-
-
-    <style>
-
-        :root {
-
-            --primary: #db2777;
-            --primary-hover: #be185d;
-            --background: #fdf2f8;
-            --card-bg: #ffffff;
-            --text: #1f2937;
-            --border: #e5e7eb;
-
-        }
-
-
-        * {
-
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family:
-                'Segoe UI',
-                system-ui,
-                sans-serif;
-
-        }
-
-
-        body {
-
-            background-color:
-                var(--background);
-
-            color: var(--text);
-
-            padding:
-                2rem 1rem;
-
-        }
-
-
-        .container {
-
-            max-width: 600px;
-
-            margin: 0 auto;
-
-            background:
-                var(--card-bg);
-
-            padding:
-                2rem;
-
-            border-radius:
-                1rem;
-
-            box-shadow:
-                0 10px 15px -3px
-                rgba(0, 0, 0, 0.1);
-
-        }
-
-
-        h1 {
-
-            text-align: center;
-
-            color:
-                var(--primary);
-
-            margin-bottom:
-                0.5rem;
-
-        }
-
-
-        p.subtitle {
-
-            text-align: center;
-
-            color: #6b7280;
-
-            margin-bottom:
-                2rem;
-
-        }
-
-
-        .form-group {
-
-            margin-bottom:
-                1.25rem;
-
-        }
-
-
-        label {
-
-            display: block;
-
-            font-weight: 600;
-
-            margin-bottom:
-                0.5rem;
-
-            font-size:
-                0.9rem;
-
-        }
-
-
-        input,
-        select,
-        textarea {
-
-            width: 100%;
-
-            padding:
-                0.75rem;
-
-            border:
-                1px solid var(--border);
-
-            border-radius:
-                0.5rem;
-
-            font-size:
-                1rem;
-
-            outline: none;
-
-            transition:
-                border 0.2s;
-
-            background:
-                white;
-
-        }
-
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-
-            border-color:
-                var(--primary);
-
-            box-shadow:
-                0 0 0 3px
-                rgba(219, 39, 119, 0.1);
-
-        }
-
-
-        select:disabled,
-        input:disabled {
-
-            background:
-                #f3f4f6;
-
-            cursor:
-                not-allowed;
-
-        }
-
-
-        .grid {
-
-            display: grid;
-
-            grid-template-columns:
-                1fr 1fr;
-
-            gap:
-                1rem;
-
-        }
-
-
-        button {
-
-            width: 100%;
-
-            background-color:
-                var(--primary);
-
-            color: white;
-
-            border: none;
-
-            padding:
-                1rem;
-
-            border-radius:
-                0.5rem;
-
-            font-size:
-                1rem;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition:
-                background 0.2s;
-
-            margin-top:
-                1rem;
-
-        }
-
-
-        button:hover {
-
-            background-color:
-                var(--primary-hover);
-
-        }
-
-
-        button:disabled {
-
-            background-color:
-                #9ca3af;
-
-            cursor:
-                not-allowed;
-
-        }
-
-
-        .message {
-
-            padding:
-                1rem;
-
-            margin-top:
-                1rem;
-
-            border-radius:
-                0.5rem;
-
-            display: none;
-
-            text-align: center;
-
-            font-weight: 600;
-
-        }
-
-
-        .success {
-
-            background-color:
-                #d1fae5;
-
-            color:
-                #065f46;
-
-            display:
-                block;
-
-        }
-
-
-        .error {
-
-            background-color:
-                #fee2e2;
-
-            color:
-                #991b1b;
-
-            display:
-                block;
-
-        }
-
-
-        .loading {
-
-            color:
-                #6b7280;
-
-            font-size:
-                0.9rem;
-
-            margin-top:
-                0.4rem;
-
-        }
-
-
-        .booking-reference {
-
-            font-size:
-                1.1rem;
-
-            margin-top:
-                0.5rem;
-
-        }
-
-
-        @media (max-width: 500px) {
-
-            .grid {
-
-                grid-template-columns:
-                    1fr;
-
-            }
-
-            .container {
-
-                padding:
-                    1.25rem;
-
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow & Glam | Book a Beauty Experience</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #faf5f1;
+      --cream-deep: #f1e5df;
+      --blush: #ead5d0;
+      --rose: #b87580;
+      --rose-dark: #955964;
+      --charcoal: #302729;
+      --muted: #887b79;
+      --line: #e9dcd6;
+      --white: #fffdfb;
+      --success-bg: #e8f3eb;
+      --success-text: #315f42;
+      --error-bg: #fae9e8;
+      --error-text: #984d4b;
+      --shadow: 0 24px 70px rgba(69, 43, 45, .10);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      padding: 34px 22px;
+      color: var(--charcoal);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(234,213,208,.62), transparent 28rem),
+        radial-gradient(circle at 94% 88%, rgba(184,117,128,.10), transparent 26rem),
+        var(--cream);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .page-shell { width: min(1120px, 100%); margin: 0 auto; }
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 26px; padding: 0 4px;
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark {
+      width: 42px; height: 42px; display: grid; place-items: center;
+      border-radius: 50%; background: var(--charcoal); color: var(--cream);
+      font-family: 'Playfair Display', serif; font-size: 21px;
+    }
+    .brand-name { font-family: 'Playfair Display', serif; font-size: 22px; letter-spacing: -.5px; }
+    .brand-name span { color: var(--rose-dark); }
+    .top-note { color: var(--muted); font-size: 12px; letter-spacing: 1.4px; text-transform: uppercase; }
+
+    .booking-layout {
+      display: grid; grid-template-columns: .88fr 1.12fr;
+      min-height: 720px; overflow: hidden; border: 1px solid rgba(184,117,128,.16);
+      border-radius: 26px; background: var(--white); box-shadow: var(--shadow);
+    }
+    .intro-panel {
+      position: relative; display: flex; flex-direction: column; justify-content: space-between;
+      min-height: 720px; padding: 48px 42px; overflow: hidden; color: #fffaf7;
+      background:
+        linear-gradient(180deg, rgba(43,32,34,.18) 0%, rgba(43,32,34,.84) 100%),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=90') center/cover;
+    }
+    .intro-panel::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      border-right: 1px solid rgba(255,255,255,.12);
+    }
+    .intro-top, .intro-bottom { position: relative; z-index: 1; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--blush); }
+    .intro-panel h1 {
+      max-width: 420px; margin-top: 24px;
+      font-family: 'Playfair Display', serif; font-size: clamp(42px, 5vw, 62px);
+      line-height: 1.06; font-weight: 500; letter-spacing: -1.8px;
+    }
+    .intro-panel h1 em { color: #edc9c6; font-style: italic; }
+    .intro-copy { max-width: 330px; margin-top: 20px; color: rgba(255,250,247,.82); font-size: 14px; line-height: 1.8; }
+    .intro-bottom { display: flex; align-items: center; gap: 14px; }
+    .sparkle {
+      width: 42px; height: 42px; display: grid; place-items: center; flex: 0 0 auto;
+      border: 1px solid rgba(255,255,255,.45); border-radius: 50%; color: #f1d6d1; font-size: 20px;
+    }
+    .intro-bottom p { color: rgba(255,250,247,.82); font-size: 12px; line-height: 1.6; }
+    .intro-bottom strong { display: block; color: white; font-size: 13px; }
+
+    .form-panel { padding: 44px 48px 38px; }
+    .form-heading { margin-bottom: 30px; }
+    .form-heading .eyebrow { color: var(--rose-dark); }
+    .form-heading h2 {
+      margin-top: 12px; font-family: 'Playfair Display', serif;
+      font-size: 34px; font-weight: 600; letter-spacing: -.7px;
+    }
+    .form-heading p { margin-top: 8px; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .section-label {
+      display: flex; align-items: center; gap: 10px; margin: 25px 0 15px;
+      color: var(--rose-dark); font-size: 10px; font-weight: 700;
+      letter-spacing: 1.8px; text-transform: uppercase;
+    }
+    .section-label::after { content: ""; height: 1px; flex: 1; background: var(--line); }
+    .form-group { margin-bottom: 17px; min-width: 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    label { display: block; margin-bottom: 8px; color: #514548; font-size: 12px; font-weight: 700; }
+    input, select, textarea {
+      width: 100%; min-height: 48px; padding: 12px 14px;
+      border: 1px solid var(--line); border-radius: 10px; outline: none;
+      background: #fff; color: var(--charcoal); font: 13px 'DM Sans', sans-serif;
+      transition: border-color .2s, box-shadow .2s, background .2s;
+    }
+    textarea { min-height: 92px; resize: vertical; }
+    input::placeholder, textarea::placeholder { color: #b1a5a2; }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--rose); background: #fffdfc;
+      box-shadow: 0 0 0 4px rgba(184,117,128,.11);
+    }
+    select:disabled, input:disabled { background: #f4efec; color: #a79b98; cursor: not-allowed; }
+    .loading { min-height: 16px; margin-top: 6px; color: var(--rose-dark); font-size: 11px; }
+    button {
+      width: 100%; min-height: 52px; margin-top: 8px; padding: 14px 20px;
+      border: 0; border-radius: 10px; background: var(--charcoal); color: #fff;
+      font: 700 12px 'DM Sans', sans-serif; letter-spacing: 1.5px;
+      text-transform: uppercase; cursor: pointer; transition: background .2s, transform .2s;
+    }
+    button:hover { background: var(--rose-dark); transform: translateY(-1px); }
+    button:disabled { background: #b9aeab; cursor: not-allowed; transform: none; }
+    .message {
+      display: none; margin-top: 18px; padding: 15px 16px; border-radius: 10px;
+      text-align: left; font-size: 13px; line-height: 1.6;
+    }
+    .success { display: block; background: var(--success-bg); color: var(--success-text); }
+    .error { display: block; background: var(--error-bg); color: var(--error-text); }
+    .booking-reference { margin-top: 8px; font-size: 13px; line-height: 1.8; }
+    .booking-reference strong { color: inherit; }
+    .form-footnote { margin-top: 18px; color: #9a8d8a; text-align: center; font-size: 11px; line-height: 1.6; }
+    .form-footnote span { color: var(--rose-dark); }
+
+    @media (max-width: 850px) {
+      body { padding: 20px 14px; }
+      .booking-layout { grid-template-columns: 1fr; }
+      .intro-panel { min-height: 330px; padding: 34px; }
+      .intro-panel h1 { max-width: 520px; font-size: 46px; }
+      .intro-copy { max-width: 480px; }
+      .intro-bottom { margin-top: 38px; }
+      .form-panel { padding: 36px; }
+    }
+    @media (max-width: 520px) {
+      .topbar { margin-bottom: 18px; }
+      .top-note { display: none; }
+      .booking-layout { border-radius: 18px; }
+      .intro-panel { min-height: 300px; padding: 27px 24px; }
+      .intro-panel h1 { font-size: 40px; }
+      .intro-copy { font-size: 13px; }
+      .form-panel { padding: 28px 22px; }
+      .form-heading h2 { font-size: 29px; }
+      .grid { grid-template-columns: 1fr; gap: 0; }
+    }
+  </style>
 </head>
-
-
 <body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">G</div>
+        <div class="brand-name">Glow <span>&</span> Glam</div>
+      </div>
+      <div class="top-note">Your beauty, your moment</div>
+    </header>
 
+    <section class="booking-layout">
+      <aside class="intro-panel">
+        <div class="intro-top">
+          <div class="eyebrow">The beauty experience</div>
+          <h1>A little time for <em>you.</em></h1>
+          <p class="intro-copy">Discover your next favourite beauty experience. Choose your service, find a time that suits you, and let our beauty professionals take care of the rest.</p>
+        </div>
+        <div class="intro-bottom">
+          <div class="sparkle">✦</div>
+          <p><strong>Feel beautiful. Feel confident.</strong>Your moment to relax, refresh and glow.</p>
+        </div>
+      </aside>
 
-<div class="container">
-
-
-    <h1>
-        Book a Beauty Agent
-    </h1>
-
-
-    <p class="subtitle">
-        Secure your glow-up session in seconds
-    </p>
-
-
-    <form id="bookingForm">
-
-
-        <!-- NAME -->
-
-        <div class="form-group">
-
-            <label for="clientName">
-                Full Name
-            </label>
-
-            <input
-                type="text"
-                id="clientName"
-                required
-                placeholder="Jane Doe">
-
+      <div class="form-panel">
+        <div class="form-heading">
+          <div class="eyebrow">Reservations</div>
+          <h2>Book your appointment</h2>
+          <p>Complete the details below to request your beauty session.</p>
         </div>
 
-
-        <!-- EMAIL -->
-
-        <div class="form-group">
-
-            <label for="clientEmail">
-                Email Address
-            </label>
-
-            <input
-                type="email"
-                id="clientEmail"
-                required
-                placeholder="jane@example.com">
-
-        </div>
-
-
-        <!-- PHONE -->
-
-        <div class="form-group">
-
-            <label for="clientPhone">
-                Phone Number
-            </label>
-
-            <input
-                type="tel"
-                id="clientPhone"
-                required
-                placeholder="082 123 4567">
-
-        </div>
-
-
-        <!-- SERVICE -->
-
-        <div class="form-group">
-
-            <label for="service">
-
-                Select Service
-
-            </label>
-
-            <select
-                id="service"
-                required>
-
-                <option value="">
-                    Loading services...
-                </option>
-
-            </select>
-
-        </div>
-
-
-        <!-- DATE -->
-
-        <div class="form-group">
-
-            <label for="bookingDate">
-                Date
-            </label>
-
-            <input
-                type="date"
-                id="bookingDate"
-                required>
-
-        </div>
-
-
-        <!-- TIME -->
-
-        <div class="form-group">
-
-            <label for="bookingTime">
-                Time Slot
-            </label>
-
-            <select
-                id="bookingTime"
-                required
-                disabled>
-
-                <option value="">
-                    Select a date first
-                </option>
-
-            </select>
-
-            <div
-                id="timeLoading"
-                class="loading">
+        <form id="bookingForm">
+          <div class="section-label">Your details</div>
+          <div class="form-group">
+            <label for="clientName">Full name</label>
+            <input type="text" id="clientName" required placeholder="e.g. Jane Doe" autocomplete="name">
+          </div>
+          <div class="grid">
+            <div class="form-group">
+              <label for="clientEmail">Email address</label>
+              <input type="email" id="clientEmail" required placeholder="jane@example.com" autocomplete="email">
             </div>
-
-        </div>
-
-
-        <!-- AGENT -->
-
-        <div class="form-group">
-
-            <label for="agent">
-
-                Preferred Agent
-
-            </label>
-
-            <select
-                id="agent"
-                required
-                disabled>
-
-                <option value="">
-                    Select a time first
-                </option>
-
-            </select>
-
-            <div
-                id="agentLoading"
-                class="loading">
+            <div class="form-group">
+              <label for="clientPhone">Phone number</label>
+              <input type="tel" id="clientPhone" required placeholder="082 123 4567" autocomplete="tel">
             </div>
+          </div>
 
-        </div>
+          <div class="section-label">Your appointment</div>
+          <div class="form-group">
+            <label for="service">Beauty service</label>
+            <select id="service" required>
+              <option value="">Loading services...</option>
+            </select>
+          </div>
+          <div class="grid">
+            <div class="form-group">
+              <label for="bookingDate">Preferred date</label>
+              <input type="date" id="bookingDate" required>
+            </div>
+            <div class="form-group">
+              <label for="bookingTime">Available time</label>
+              <select id="bookingTime" required disabled>
+                <option value="">Select a date first</option>
+              </select>
+              <div id="timeLoading" class="loading"></div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="agent">Preferred beauty agent</label>
+            <select id="agent" required disabled>
+              <option value="">Select a time first</option>
+            </select>
+            <div id="agentLoading" class="loading"></div>
+          </div>
+          <div class="form-group">
+            <label for="specialNotes">Special requests <span style="font-weight:400;color:#9a8d8a;">(optional)</span></label>
+            <textarea id="specialNotes" rows="3" placeholder="Tell us about allergies, preferences or a style reference..."></textarea>
+          </div>
+          <button type="submit" id="submitBtn">Confirm booking</button>
+          <div id="statusMessage" class="message" role="status" aria-live="polite"></div>
+          <p class="form-footnote">By submitting, you are sending an appointment request to <span>Glow & Glam</span>.</p>
+        </form>
+      </div>
+    </section>
+  </main>
 
-
-        <!-- NOTES -->
-
-        <div class="form-group">
-
-            <label for="specialNotes">
-
-                Special Requests /
-                Notes (Optional)
-
-            </label>
-
-            <textarea
-                id="specialNotes"
-                rows="3"
-                placeholder="Allergies, specific style references, etc.">
-            </textarea>
-
-        </div>
-
-
-        <button
-            type="submit"
-            id="submitBtn">
-
-            Confirm Booking
-
-        </button>
-
-
-    </form>
-
-
-    <div
-        id="statusMessage"
-        class="message">
-    </div>
-
-
-</div>
-
-
-<script>
+  <script>
 
 
 /* =========================================================
@@ -1321,8 +1025,5 @@ function clearMessage() {
 
 
 </script>
-
-
 </body>
-
 </html>
