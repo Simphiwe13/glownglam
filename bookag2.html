@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Glow & Glam | Professional Beauty Agents</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: '#FBF7F4',
+                        blush: '#F3E4DF',
+                        rose: '#B76E79',
+                        roseDark: '#925561',
+                        charcoal: '#292526',
+                        soft: '#F8F2EF'
+                    },
+                    fontFamily: {
+                        sans: ['DM Sans', 'sans-serif'],
+                        display: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .display-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-image {
+            transition: transform 0.7s ease;
+        }
+
+        .hero-container:hover .hero-image {
+            transform: scale(1.04);
+        }
+
+        .service-card {
+            transition: all 0.35s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: #B76E79;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body class="bg-cream text-charcoal antialiased">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-stone-200/60">
+
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <div class="text-2xl md:text-3xl font-bold tracking-[0.12em] text-charcoal">
+                GLOW<span class="text-rose">.</span>GLAM
+            </div>
+
+            <!-- Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-stone-600">
+
+                <a href="#services" class="nav-link hover:text-charcoal transition">
+                    Services
+                </a>
+
+                <a href="#about" class="nav-link hover:text-charcoal transition">
+                    About
+                </a>
+
+                <a href="#contact" class="nav-link hover:text-charcoal transition">
+                    Contact
+                </a>
+
+            </nav>
+
+            <!-- Login and Book Buttons -->
+<div class="flex items-center gap-3">
+
+    <!-- Book Now Button -->
+    <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+       class="bg-charcoal hover:bg-rose text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl">
+
+        Book Now
+
+    </a>
+	
+	<!-- Login Button -->
+    <a href="YOUR_LOGIN_PAGE_LINK_HERE"
+       class="border border-rose text-rose hover:bg-blush font-semibold px-5 py-3 rounded-full transition-all duration-300">
+
+        Login
+
+    </a>
+
+</div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="pt-32 pb-20 md:pt-40 md:pb-28 bg-cream">
+
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+            <!-- LEFT CONTENT -->
+
+            <div class="space-y-7">
+
+                <span class="inline-flex items-center gap-2 bg-blush text-roseDark text-xs md:text-sm font-bold px-5 py-2 rounded-full uppercase tracking-[0.15em]">
+
+                    <span class="w-2 h-2 bg-rose rounded-full"></span>
+
+                    Expert Beauty Agents On-Demand
+
+                </span>
+
+
+                <h1 class="display-font text-5xl md:text-6xl lg:text-7xl leading-[1.08] font-semibold text-charcoal">
+
+                    Elevate Your Look With
+                    <span class="text-rose italic">
+                        Certified Professionals
+                    </span>
+
+                </h1>
+
+
+                <p class="text-lg md:text-xl text-stone-600 leading-relaxed max-w-xl">
+
+                    Discover elite beauty artists specializing in hair, makeup,
+                    skincare, and styling. Experience luxury transformations
+                    tailored uniquely to you.
+
+                </p>
+
+
+                <div class="pt-3 flex flex-col sm:flex-row gap-4">
+
+                    <!-- Main Button -->
+
+                    <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                       class="bg-charcoal hover:bg-rose text-white text-center font-semibold px-8 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300">
+
+                        Book Your Session
+
+                    </a>
+
+
+                    <!-- Secondary Button -->
+
+                    <a href="#services"
+                       class="border border-stone-300 hover:border-rose hover:text-rose text-charcoal text-center font-semibold px-8 py-4 rounded-full transition-all duration-300">
+
+                        Explore Services
+
+                    </a>
+
+                </div>
+
+
+                <!-- Small Trust Text -->
+
+                <div class="pt-4 flex items-center gap-3 text-sm text-stone-500">
+
+                    <div class="flex -space-x-2">
+
+                        <div class="w-8 h-8 rounded-full border-2 border-cream bg-stone-300"></div>
+
+                        <div class="w-8 h-8 rounded-full border-2 border-cream bg-stone-400"></div>
+
+                        <div class="w-8 h-8 rounded-full border-2 border-cream bg-stone-500"></div>
+
+                    </div>
+
+                    <span>
+                        Professional beauty experts you can trust
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT IMAGE -->
+
+            <div class="relative hero-container">
+
+                <!-- Decorative Shape -->
+
+                <div class="absolute -top-8 -right-8 w-32 h-32 bg-blush rounded-full opacity-70"></div>
+
+                <div class="absolute -bottom-8 -left-8 w-40 h-40 border border-rose/30 rounded-full"></div>
+
+
+                <!-- Image Frame -->
+
+                <div class="relative rounded-[2rem] overflow-hidden shadow-2xl bg-stone-200 h-[450px] md:h-[560px]">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=90"
+                        alt="Luxury beauty salon"
+                        class="hero-image w-full h-full object-cover"
+                    >
+
+                    <!-- Image Overlay -->
+
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
+
+
+                    <!-- Floating Label -->
+
+                    <div class="absolute bottom-6 left-6 right-6">
+
+                        <div class="bg-white/90 backdrop-blur-md rounded-2xl p-5 shadow-xl">
+
+                            <div class="flex items-center justify-between">
+
+                                <div>
+
+                                    <p class="text-xs uppercase tracking-widest text-rose font-bold">
+                                        Glow & Glam
+                                    </p>
+
+                                    <p class="font-semibold text-charcoal mt-1">
+                                        Beauty. Confidence. You.
+                                    </p>
+
+                                </div>
+
+                                <div class="w-11 h-11 rounded-full bg-blush flex items-center justify-center text-rose text-xl">
+                                    ✦
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= SERVICES ================= -->
+
+    <section id="services" class="py-24 bg-white">
+
+        <div class="max-w-7xl mx-auto px-6">
+
+            <!-- Section Heading -->
+
+            <div class="text-center max-w-2xl mx-auto mb-16">
+
+                <span class="text-rose uppercase tracking-[0.2em] text-xs font-bold">
+                    What We Offer
+                </span>
+
+                <h2 class="display-font text-4xl md:text-5xl font-semibold text-charcoal mt-3 mb-5">
+                    Our Specialty Services
+                </h2>
+
+                <p class="text-stone-600 text-lg">
+                    Handpicked professional treatments delivered with precision,
+                    care and attention to detail.
+                </p>
+
+            </div>
+
+
+            <!-- Service Cards -->
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+
+                <!-- CARD 1 -->
+
+                <div class="service-card bg-cream p-8 md:p-10 rounded-3xl border border-stone-200/70 shadow-sm hover:shadow-xl">
+
+                    <div class="w-14 h-14 bg-blush text-rose flex items-center justify-center rounded-2xl mb-7 font-bold text-lg">
+
+                        01
+
+                    </div>
+
+                    <h3 class="display-font text-2xl font-semibold text-charcoal mb-4">
+
+                        Professional Makeup
+
+                    </h3>
+
+                    <p class="text-stone-600 leading-relaxed mb-7">
+
+                        From soft glam looks for daily wear to bridal transformations
+                        that last all day.
+
+                    </p>
+
+                    <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                       class="text-rose font-bold hover:text-roseDark transition flex items-center gap-2">
+
+                        Book Makeup
+
+                        <span class="text-lg">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- CARD 2 -->
+
+                <div class="service-card bg-cream p-8 md:p-10 rounded-3xl border border-stone-200/70 shadow-sm hover:shadow-xl">
+
+                    <div class="w-14 h-14 bg-blush text-rose flex items-center justify-center rounded-2xl mb-7 font-bold text-lg">
+
+                        02
+
+                    </div>
+
+                    <h3 class="display-font text-2xl font-semibold text-charcoal mb-4">
+
+                        Hair Styling & Care
+
+                    </h3>
+
+                    <p class="text-stone-600 leading-relaxed mb-7">
+
+                        Expert cuts, vibrant coloring, custom treatments,
+                        and flawless styling.
+
+                    </p>
+
+                    <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                       class="text-rose font-bold hover:text-roseDark transition flex items-center gap-2">
+
+                        Book Hair Styling
+
+                        <span class="text-lg">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+
+                <!-- CARD 3 -->
+
+                <div class="service-card bg-cream p-8 md:p-10 rounded-3xl border border-stone-200/70 shadow-sm hover:shadow-xl">
+
+                    <div class="w-14 h-14 bg-blush text-rose flex items-center justify-center rounded-2xl mb-7 font-bold text-lg">
+
+                        03
+
+                    </div>
+
+                    <h3 class="display-font text-2xl font-semibold text-charcoal mb-4">
+
+                        Skincare & Spa
+
+                    </h3>
+
+                    <p class="text-stone-600 leading-relaxed mb-7">
+
+                        Rejuvenating facials and skin treatments designed
+                        to give you a natural glow.
+
+                    </p>
+
+                    <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                       class="text-rose font-bold hover:text-roseDark transition flex items-center gap-2">
+
+                        Book Skincare
+
+                        <span class="text-lg">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="py-24 bg-soft">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+
+                <div>
+
+                    <span class="text-rose uppercase tracking-[0.2em] text-xs font-bold">
+                        About Glow & Glam
+                    </span>
+
+                    <h2 class="display-font text-4xl md:text-5xl font-semibold mt-3 mb-6">
+                        Beauty is more than a look.
+                    </h2>
+
+                    <p class="text-stone-600 text-lg leading-relaxed mb-5">
+
+                        We connect you with talented beauty professionals
+                        who understand that every client is different.
+
+                    </p>
+
+                    <p class="text-stone-600 leading-relaxed">
+
+                        Whether you're preparing for a special occasion,
+                        refreshing your everyday look, or simply taking
+                        time for yourself, our professionals are ready
+                        to help you feel confident and beautiful.
+
+                    </p>
+
+                </div>
+
+
+                <div class="grid grid-cols-2 gap-5">
+
+                    <div class="bg-white p-7 rounded-3xl shadow-sm">
+
+                        <div class="text-4xl font-bold text-rose">
+                            100+
+                        </div>
+
+                        <p class="text-stone-500 mt-2">
+                            Beauty Sessions
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white p-7 rounded-3xl shadow-sm">
+
+                        <div class="text-4xl font-bold text-rose">
+                            25+
+                        </div>
+
+                        <p class="text-stone-500 mt-2">
+                            Beauty Experts
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white p-7 rounded-3xl shadow-sm">
+
+                        <div class="text-4xl font-bold text-rose">
+                            4.9
+                        </div>
+
+                        <p class="text-stone-500 mt-2">
+                            Client Rating
+                        </p>
+
+                    </div>
+
+
+                    <div class="bg-white p-7 rounded-3xl shadow-sm">
+
+                        <div class="text-4xl font-bold text-rose">
+                            24/7
+                        </div>
+
+                        <p class="text-stone-500 mt-2">
+                            Booking Access
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CALL TO ACTION ================= -->
+
+    <section id="contact" class="py-24 bg-charcoal text-white">
+
+        <div class="max-w-5xl mx-auto px-6 text-center">
+
+            <span class="text-rose uppercase tracking-[0.2em] text-xs font-bold">
+                Your Glow Awaits
+            </span>
+
+            <h2 class="display-font text-4xl md:text-6xl font-semibold mt-4 mb-6">
+
+                Ready for Your
+                <span class="text-rose italic">
+                    Transformation?
+                </span>
+
+            </h2>
+
+            <p class="text-stone-300 max-w-2xl mx-auto text-lg leading-relaxed">
+
+                Secure your slot with top-tier beauty agents
+                in just a few clicks.
+
+            </p>
+
+            <div class="pt-8">
+
+                <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                   class="inline-block bg-rose hover:bg-roseDark text-white font-bold px-10 py-4 rounded-full shadow-xl hover:shadow-2xl transition-all duration-300 text-lg">
+
+                    Proceed to Booking Page
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="bg-white border-t border-stone-200 py-10">
+
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-5 text-stone-500 text-sm">
+
+            <div>
+                © 2026 Glow & Glam. All rights reserved.
+            </div>
+
+            <div class="flex gap-7">
+
+                <a href="#services"
+                   class="hover:text-rose transition">
+
+                    Services
+
+                </a>
+
+                <a href="YOUR_BOOKING_PAGE_LINK_HERE"
+                   class="hover:text-rose transition">
+
+                    Appointments
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
