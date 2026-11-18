@@ -2,37 +2,16 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glow & Glam | Book a Beauty Experience</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
-    rel="stylesheet"
-  >
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
-
     :root {
-
       --cream: #faf5f1;
       --cream-deep: #f1e5df;
       --blush: #ead5d0;
@@ -49,10 +28,8 @@
       --error-bg: #fae9e8;
       --error-text: #984d4b;
 
-      --shadow:
-        0 24px 70px rgba(69, 43, 45, .10);
+      --shadow: 0 24px 70px rgba(69, 43, 45, .10);
     }
-
 
     * {
       box-sizing: border-box;
@@ -60,2192 +37,976 @@
       padding: 0;
     }
 
-
     body {
-
       min-height: 100vh;
-
       padding: 34px 22px;
-
       color: var(--charcoal);
-
       background:
-        radial-gradient(
-          circle at 8% 8%,
-          rgba(234,213,208,.62),
-          transparent 28rem
-        ),
-
-        radial-gradient(
-          circle at 94% 88%,
-          rgba(184,117,128,.10),
-          transparent 26rem
-        ),
-
+        radial-gradient(circle at 8% 8%, rgba(234,213,208,.62), transparent 28rem),
+        radial-gradient(circle at 94% 88%, rgba(184,117,128,.10), transparent 26rem),
         var(--cream);
-
-      font-family:
-        'DM Sans',
-        sans-serif;
+      font-family: 'DM Sans', sans-serif;
     }
 
-
     .page-shell {
-
       width: min(1120px, 100%);
-
       margin: 0 auto;
     }
 
-
     .topbar {
-
       display: flex;
-
       align-items: center;
-
       justify-content: space-between;
-
       margin-bottom: 26px;
-
       padding: 0 4px;
     }
 
-
     .brand {
-
       display: flex;
-
       align-items: center;
-
       gap: 12px;
     }
 
-
     .brand-mark {
-
       width: 42px;
       height: 42px;
-
       display: grid;
-
       place-items: center;
-
       border-radius: 50%;
-
       background: var(--charcoal);
-
       color: var(--cream);
-
-      font-family:
-        'Playfair Display',
-        serif;
-
+      font-family: 'Playfair Display', serif;
       font-size: 21px;
     }
 
-
     .brand-name {
-
-      font-family:
-        'Playfair Display',
-        serif;
-
+      font-family: 'Playfair Display', serif;
       font-size: 22px;
-
       letter-spacing: -.5px;
     }
 
-
     .brand-name span {
-
       color: var(--rose-dark);
     }
 
-
     .top-note {
-
       color: var(--muted);
-
       font-size: 12px;
-
       letter-spacing: 1.4px;
-
       text-transform: uppercase;
     }
 
-
     .booking-layout {
-
       display: grid;
-
-      grid-template-columns:
-        .88fr 1.12fr;
-
+      grid-template-columns: .88fr 1.12fr;
       min-height: 720px;
-
       overflow: hidden;
-
-      border:
-        1px solid rgba(184,117,128,.16);
-
+      border: 1px solid rgba(184,117,128,.16);
       border-radius: 26px;
-
       background: var(--white);
-
       box-shadow: var(--shadow);
     }
 
-
     .intro-panel {
-
       position: relative;
-
       display: flex;
-
       flex-direction: column;
-
       justify-content: space-between;
-
       min-height: 720px;
-
       padding: 48px 42px;
-
       overflow: hidden;
-
       color: #fffaf7;
-
       background:
-
-        linear-gradient(
-          180deg,
-          rgba(43,32,34,.18) 0%,
-          rgba(43,32,34,.84) 100%
-        ),
-
-        url(
-          'https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=90'
-        )
-        center / cover;
+        linear-gradient(180deg, rgba(43,32,34,.18) 0%, rgba(43,32,34,.84) 100%),
+        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=90') center / cover;
     }
-
 
     .intro-panel::after {
-
       content: "";
-
       position: absolute;
-
       inset: 0;
-
       pointer-events: none;
-
-      border-right:
-        1px solid rgba(255,255,255,.12);
+      border-right: 1px solid rgba(255,255,255,.12);
     }
-
 
     .intro-top,
     .intro-bottom {
-
       position: relative;
-
       z-index: 1;
     }
 
-
     .eyebrow {
-
       display: inline-flex;
-
       align-items: center;
-
       gap: 9px;
-
       font-size: 11px;
-
       font-weight: 700;
-
       letter-spacing: 2px;
-
       text-transform: uppercase;
     }
 
-
     .eyebrow::before {
-
       content: "";
-
       width: 26px;
-
       height: 1px;
-
       background: var(--blush);
     }
 
-
     .intro-panel h1 {
-
       max-width: 420px;
-
       margin-top: 24px;
-
-      font-family:
-        'Playfair Display',
-        serif;
-
-      font-size:
-        clamp(42px, 5vw, 62px);
-
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(42px, 5vw, 62px);
       line-height: 1.06;
-
       font-weight: 500;
-
       letter-spacing: -1.8px;
     }
 
-
     .intro-panel h1 em {
-
       color: #edc9c6;
-
       font-style: italic;
     }
 
-
     .intro-copy {
-
       max-width: 330px;
-
       margin-top: 20px;
-
-      color:
-        rgba(255,250,247,.82);
-
+      color: rgba(255,250,247,.82);
       font-size: 14px;
-
       line-height: 1.8;
     }
 
-
     .intro-bottom {
-
       display: flex;
-
       align-items: center;
-
       gap: 14px;
     }
 
-
     .sparkle {
-
       width: 42px;
-
       height: 42px;
-
       display: grid;
-
       place-items: center;
-
       flex: 0 0 auto;
-
-      border:
-        1px solid rgba(255,255,255,.45);
-
+      border: 1px solid rgba(255,255,255,.45);
       border-radius: 50%;
-
       color: #f1d6d1;
-
       font-size: 20px;
     }
 
-
     .intro-bottom p {
-
-      color:
-        rgba(255,250,247,.82);
-
+      color: rgba(255,250,247,.82);
       font-size: 12px;
-
       line-height: 1.6;
     }
 
-
     .intro-bottom strong {
-
       display: block;
-
       color: white;
-
       font-size: 13px;
     }
 
-
     .form-panel {
-
-      padding:
-        44px 48px 38px;
+      padding: 44px 48px 38px;
     }
 
-
     .form-heading {
-
       margin-bottom: 30px;
     }
 
-
     .form-heading .eyebrow {
-
       color: var(--rose-dark);
     }
 
-
     .form-heading h2 {
-
       margin-top: 12px;
-
-      font-family:
-        'Playfair Display',
-        serif;
-
+      font-family: 'Playfair Display', serif;
       font-size: 34px;
-
       font-weight: 600;
-
       letter-spacing: -.7px;
     }
 
-
     .form-heading p {
-
       margin-top: 8px;
-
       color: var(--muted);
-
       font-size: 13px;
-
       line-height: 1.7;
     }
 
-
     .section-label {
-
       display: flex;
-
       align-items: center;
-
       gap: 10px;
-
-      margin:
-        25px 0 15px;
-
+      margin: 25px 0 15px;
       color: var(--rose-dark);
-
       font-size: 10px;
-
       font-weight: 700;
-
       letter-spacing: 1.8px;
-
       text-transform: uppercase;
     }
 
-
     .section-label::after {
-
       content: "";
-
       height: 1px;
-
       flex: 1;
-
       background: var(--line);
     }
 
-
     .form-group {
-
       margin-bottom: 17px;
-
       min-width: 0;
     }
 
-
     .grid {
-
       display: grid;
-
-      grid-template-columns:
-        1fr 1fr;
-
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-
     label {
-
       display: block;
-
       margin-bottom: 8px;
-
       color: #514548;
-
       font-size: 12px;
-
       font-weight: 700;
     }
-
 
     input,
     select,
     textarea {
-
       width: 100%;
-
       min-height: 48px;
-
       padding: 12px 14px;
-
-      border:
-        1px solid var(--line);
-
+      border: 1px solid var(--line);
       border-radius: 10px;
-
       outline: none;
-
       background: #fff;
-
       color: var(--charcoal);
-
-      font:
-        13px 'DM Sans',
-        sans-serif;
-
-      transition:
-        border-color .2s,
-        box-shadow .2s,
-        background .2s;
+      font: 13px 'DM Sans', sans-serif;
+      transition: border-color .2s, box-shadow .2s, background .2s;
     }
 
-
     textarea {
-
       min-height: 92px;
-
       resize: vertical;
     }
 
-
     input::placeholder,
     textarea::placeholder {
-
       color: #b1a5a2;
     }
-
 
     input:focus,
     select:focus,
     textarea:focus {
-
       border-color: var(--rose);
-
       background: #fffdfc;
-
-      box-shadow:
-        0 0 0 4px
-        rgba(184,117,128,.11);
+      box-shadow: 0 0 0 4px rgba(184,117,128,.11);
     }
-
 
     select:disabled,
     input:disabled {
-
       background: #f4efec;
-
       color: #a79b98;
-
       cursor: not-allowed;
     }
 
-
     .loading {
-
       min-height: 16px;
-
       margin-top: 6px;
-
       color: var(--rose-dark);
-
       font-size: 11px;
     }
 
-
     button {
-
       width: 100%;
-
       min-height: 52px;
-
       margin-top: 8px;
-
       padding: 14px 20px;
-
       border: 0;
-
       border-radius: 10px;
-
       background: var(--charcoal);
-
       color: #fff;
-
-      font:
-        700 12px 'DM Sans',
-        sans-serif;
-
+      font: 700 12px 'DM Sans', sans-serif;
       letter-spacing: 1.5px;
-
       text-transform: uppercase;
-
       cursor: pointer;
-
-      transition:
-        background .2s,
-        transform .2s;
+      transition: background .2s, transform .2s;
     }
 
-
     button:hover {
-
       background: var(--rose-dark);
-
       transform: translateY(-1px);
     }
 
-
     button:disabled {
-
       background: #b9aeab;
-
       cursor: not-allowed;
-
       transform: none;
     }
 
-
     .message {
-
       display: none;
-
       margin-top: 18px;
-
       padding: 15px 16px;
-
       border-radius: 10px;
-
       text-align: left;
-
       font-size: 13px;
-
       line-height: 1.6;
     }
 
-
     .success {
-
       display: block;
-
       background: var(--success-bg);
-
       color: var(--success-text);
     }
 
-
     .error {
-
       display: block;
-
       background: var(--error-bg);
-
       color: var(--error-text);
     }
 
-
     .booking-reference {
-
       margin-top: 8px;
-
       font-size: 13px;
-
       line-height: 1.8;
     }
 
-
     .booking-reference strong {
-
       color: inherit;
     }
 
-
     .form-footnote {
-
       margin-top: 18px;
-
       color: #9a8d8a;
-
       text-align: center;
-
       font-size: 11px;
-
       line-height: 1.6;
     }
 
-
     .form-footnote span {
-
       color: var(--rose-dark);
     }
 
-
     @media (max-width: 850px) {
-
-      body {
-        padding: 20px 14px;
-      }
-
-      .booking-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .intro-panel {
-        min-height: 330px;
-        padding: 34px;
-      }
-
-      .intro-panel h1 {
-        max-width: 520px;
-        font-size: 46px;
-      }
-
-      .intro-copy {
-        max-width: 480px;
-      }
-
-      .intro-bottom {
-        margin-top: 38px;
-      }
-
-      .form-panel {
-        padding: 36px;
-      }
+      body { padding: 20px 14px; }
+      .booking-layout { grid-template-columns: 1fr; }
+      .intro-panel { min-height: 330px; padding: 34px; }
+      .intro-panel h1 { max-width: 520px; font-size: 46px; }
+      .intro-copy { max-width: 480px; }
+      .intro-bottom { margin-top: 38px; }
+      .form-panel { padding: 36px; }
     }
-
 
     @media (max-width: 520px) {
-
-      .topbar {
-        margin-bottom: 18px;
-      }
-
-      .top-note {
-        display: none;
-      }
-
-      .booking-layout {
-        border-radius: 18px;
-      }
-
-      .intro-panel {
-        min-height: 300px;
-        padding: 27px 24px;
-      }
-
-      .intro-panel h1 {
-        font-size: 40px;
-      }
-
-      .intro-copy {
-        font-size: 13px;
-      }
-
-      .form-panel {
-        padding: 28px 22px;
-      }
-
-      .form-heading h2 {
-        font-size: 29px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
+      .topbar { margin-bottom: 18px; }
+      .top-note { display: none; }
+      .booking-layout { border-radius: 18px; }
+      .intro-panel { min-height: 300px; padding: 27px 24px; }
+      .intro-panel h1 { font-size: 40px; }
+      .intro-copy { font-size: 13px; }
+      .form-panel { padding: 28px 22px; }
+      .form-heading h2 { font-size: 29px; }
+      .grid { grid-template-columns: 1fr; gap: 0; }
     }
-
   </style>
-
 </head>
-
 
 <body>
 
 <main class="page-shell">
 
   <header class="topbar">
-
     <div class="brand">
-
-      <div class="brand-mark">
-        G
-      </div>
-
-      <div class="brand-name">
-        Glow <span>&</span> Glam
-      </div>
-
+      <div class="brand-mark">G</div>
+      <div class="brand-name">Glow <span>&</span> Glam</div>
     </div>
-
-    <div class="top-note">
-      Your beauty, your moment
-    </div>
-
+    <div class="top-note">Your beauty, your moment</div>
   </header>
-
 
   <section class="booking-layout">
 
-
     <aside class="intro-panel">
-
       <div class="intro-top">
-
-        <div class="eyebrow">
-          The beauty experience
-        </div>
-
-        <h1>
-          A little time for
-          <em>you.</em>
-        </h1>
-
+        <div class="eyebrow">The beauty experience</div>
+        <h1>A little time for <em>you.</em></h1>
         <p class="intro-copy">
-
-          Discover your next favourite beauty
-          experience. Choose your service, find
-          a time that suits you, and let our beauty
-          professionals take care of the rest.
-
+          Discover your next favourite beauty experience. Choose your service, find a time that suits you, and let our beauty professionals take care of the rest.
         </p>
-
       </div>
-
 
       <div class="intro-bottom">
-
-        <div class="sparkle">
-          ✦
-        </div>
-
+        <div class="sparkle">✦</div>
         <p>
-
-          <strong>
-            Feel beautiful. Feel confident.
-          </strong>
-
+          <strong>Feel beautiful. Feel confident.</strong>
           Your moment to relax, refresh and glow.
-
         </p>
-
       </div>
-
     </aside>
 
-
-
     <div class="form-panel">
-
       <div class="form-heading">
-
-        <div class="eyebrow">
-          Reservations
-        </div>
-
-        <h2>
-          Book your appointment
-        </h2>
-
-        <p>
-          Complete the details below to request
-          your beauty session.
-        </p>
-
+        <div class="eyebrow">Reservations</div>
+        <h2>Book your appointment</h2>
+        <p>Complete the details below to request your beauty session.</p>
       </div>
-
-
 
       <form id="bookingForm">
 
-
-        <div class="section-label">
-          Your details
-        </div>
-
+        <div class="section-label">Your details</div>
 
         <div class="form-group">
-
-          <label for="clientName">
-            Full name
-          </label>
-
-          <input
-            type="text"
-            id="clientName"
-            required
-            placeholder="e.g. Jane Doe"
-            autocomplete="name"
-          >
-
+          <label for="clientName">Full name</label>
+          <input type="text" id="clientName" required placeholder="e.g. Jane Doe" autocomplete="name">
         </div>
-
-
 
         <div class="grid">
-
           <div class="form-group">
-
-            <label for="clientEmail">
-              Email address
-            </label>
-
-            <input
-              type="email"
-              id="clientEmail"
-              required
-              placeholder="jane@example.com"
-              autocomplete="email"
-            >
-
+            <label for="clientEmail">Email address</label>
+            <input type="email" id="clientEmail" required placeholder="jane@example.com" autocomplete="email">
           </div>
 
-
           <div class="form-group">
-
-            <label for="clientPhone">
-              Phone number
-            </label>
-
-            <input
-              type="tel"
-              id="clientPhone"
-              required
-              placeholder="082 123 4567"
-              autocomplete="tel"
-            >
-
+            <label for="clientPhone">Phone number</label>
+            <input type="tel" id="clientPhone" required placeholder="082 123 4567" autocomplete="tel">
           </div>
-
         </div>
 
+        <div class="section-label">Your appointment</div>
 
-
-        <div class="section-label">
-          Your appointment
-        </div>
-
-
-
-        <div class="form-group">
-
-          <label for="service">
-            Beauty service
-          </label>
-
-          <select
-            id="service"
-            required
-          >
-
-            <option value="">
-              Loading services...
-            </option>
-
-          </select>
-
-        </div>
-
-
-
+        <!-- NEW: Cascading Service Type & Beauty Service -->
         <div class="grid">
-
-
           <div class="form-group">
-
-            <label for="bookingDate">
-              Preferred date
-            </label>
-
-            <input
-              type="date"
-              id="bookingDate"
-              required
-            >
-
-          </div>
-
-
-
-          <div class="form-group">
-
-            <label for="bookingTime">
-              Available time
-            </label>
-
-            <select
-              id="bookingTime"
-              required
-              disabled
-            >
-
-              <option value="">
-                Select a date first
-              </option>
-
+            <label for="serviceType">Type of service</label>
+            <select id="serviceType" required>
+              <option value="">Loading categories...</option>
             </select>
-
-            <div
-              id="timeLoading"
-              class="loading"
-            ></div>
-
           </div>
 
+          <div class="form-group">
+            <label for="service">Beauty service</label>
+            <select id="service" required disabled>
+              <option value="">Select a type first</option>
+            </select>
+          </div>
         </div>
 
+        <div class="grid">
+          <div class="form-group">
+            <label for="bookingDate">Preferred date</label>
+            <input type="date" id="bookingDate" required>
+          </div>
 
+          <div class="form-group">
+            <label for="bookingTime">Available time</label>
+            <select id="bookingTime" required disabled>
+              <option value="">Select a date first</option>
+            </select>
+            <div id="timeLoading" class="loading"></div>
+          </div>
+        </div>
 
         <div class="form-group">
-
-          <label for="agent">
-            Preferred beauty agent
-          </label>
-
-          <select
-            id="agent"
-            required
-            disabled
-          >
-
-            <option value="">
-              Select a time first
-            </option>
-
+          <label for="agent">Preferred beauty agent</label>
+          <select id="agent" required disabled>
+            <option value="">Select a time first</option>
           </select>
-
-          <div
-            id="agentLoading"
-            class="loading"
-          ></div>
-
+          <div id="agentLoading" class="loading"></div>
         </div>
-
-
 
         <div class="form-group">
-
           <label for="specialNotes">
-
             Special requests
-
-            <span
-              style="
-                font-weight:400;
-                color:#9a8d8a;
-              "
-            >
-              (optional)
-            </span>
-
+            <span style="font-weight:400; color:#9a8d8a;">(optional)</span>
           </label>
-
-          <textarea
-            id="specialNotes"
-            rows="3"
-            placeholder="Tell us about allergies, preferences or a style reference..."
-          ></textarea>
-
+          <textarea id="specialNotes" rows="3" placeholder="Tell us about allergies, preferences or a style reference..."></textarea>
         </div>
 
+        <button type="submit" id="submitBtn">Confirm booking</button>
 
-
-        <button
-          type="submit"
-          id="submitBtn"
-        >
-          Confirm booking
-        </button>
-
-
-        <div
-          id="statusMessage"
-          class="message"
-          role="status"
-          aria-live="polite"
-        ></div>
-
+        <div id="statusMessage" class="message" role="status" aria-live="polite"></div>
 
         <p class="form-footnote">
-
-          By submitting, you are sending an
-          appointment request to
-
-          <span>
-            Glow & Glam
-          </span>.
-
+          By submitting, you are sending an appointment request to <span>Glow & Glam</span>.
         </p>
 
-
       </form>
-
     </div>
 
   </section>
 
 </main>
 
-
-
 <script>
-
 /* =========================================================
    GOOGLE APPS SCRIPT API URL
    ========================================================= */
-
-const API_URL =
-  'https://script.google.com/macros/s/AKfycbzF-fvmrbIjG5NbYxRAdcbq7gKFZSrwKO3MITbs4tyUTM8w93kZOZ96jXJhAQxsKjUxHA/exec';
-
+const API_URL = 'https://script.google.com/macros/s/AKfycbzF-fvmrbIjG5NbYxRAdcbq7gKFZSrwKO3MITbs4tyUTM8w93kZOZ96jXJhAQxsKjUxHA/exec';
 
 /* =========================================================
    GLOBAL DATA
    ========================================================= */
-
 let services = [];
-
 let agents = [];
-
 let times = [];
-
 
 /* =========================================================
    ELEMENTS
    ========================================================= */
-
-const bookingForm =
-  document.getElementById(
-    'bookingForm'
-  );
-
-const serviceSelect =
-  document.getElementById(
-    'service'
-  );
-
-const dateInput =
-  document.getElementById(
-    'bookingDate'
-  );
-
-const timeSelect =
-  document.getElementById(
-    'bookingTime'
-  );
-
-const agentSelect =
-  document.getElementById(
-    'agent'
-  );
-
-const submitBtn =
-  document.getElementById(
-    'submitBtn'
-  );
-
-const statusMessage =
-  document.getElementById(
-    'statusMessage'
-  );
-
-const timeLoading =
-  document.getElementById(
-    'timeLoading'
-  );
-
-const agentLoading =
-  document.getElementById(
-    'agentLoading'
-  );
-
+const bookingForm = document.getElementById('bookingForm');
+const serviceTypeSelect = document.getElementById('serviceType');
+const serviceSelect = document.getElementById('service');
+const dateInput = document.getElementById('bookingDate');
+const timeSelect = document.getElementById('bookingTime');
+const agentSelect = document.getElementById('agent');
+const submitBtn = document.getElementById('submitBtn');
+const statusMessage = document.getElementById('statusMessage');
+const timeLoading = document.getElementById('timeLoading');
+const agentLoading = document.getElementById('agentLoading');
 
 /* =========================================================
    MINIMUM DATE
    ========================================================= */
-
 function getTodayLocal() {
-
   const now = new Date();
-
-  const year =
-    now.getFullYear();
-
-  const month =
-    String(
-      now.getMonth() + 1
-    ).padStart(2, '0');
-
-  const day =
-    String(
-      now.getDate()
-    ).padStart(2, '0');
-
-  return (
-    year +
-    '-' +
-    month +
-    '-' +
-    day
-  );
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  return year + '-' + month + '-' + day;
 }
 
-
-dateInput.min =
-  getTodayLocal();
-
+dateInput.min = getTodayLocal();
 
 /* =========================================================
    JSONP API HELPER
    ========================================================= */
-
 let jsonpCounter = 0;
 
+function apiRequest(request, parameters = {}) {
+  return new Promise(function(resolve, reject) {
+    jsonpCounter++;
+    const callbackName = 'glowGlamCallback_' + Date.now() + '_' + jsonpCounter;
+    const script = document.createElement('script');
+    let completed = false;
 
-function apiRequest(
-  request,
-  parameters = {}
-) {
+    const timeout = setTimeout(function() {
+      if (completed) return;
+      completed = true;
+      cleanup();
+      reject(new Error('The Glow & Glam server did not respond. Please try again.'));
+    }, 20000);
 
-  return new Promise(
-    function(resolve, reject) {
-
-      jsonpCounter++;
-
-      const callbackName =
-        'glowGlamCallback_' +
-        Date.now() +
-        '_' +
-        jsonpCounter;
-
-
-      const script =
-        document.createElement(
-          'script'
-        );
-
-
-      let completed = false;
-
-
-      const timeout =
-        setTimeout(
-          function() {
-
-            if (completed) return;
-
-            completed = true;
-
-            cleanup();
-
-            reject(
-              new Error(
-                'The Glow & Glam server did not respond. Please try again.'
-              )
-            );
-
-          },
-          20000
-        );
-
-
-      function cleanup() {
-
-        clearTimeout(
-          timeout
-        );
-
-        if (script.parentNode) {
-
-          script.parentNode.removeChild(
-            script
-          );
-        }
-
-        try {
-
-          delete window[
-            callbackName
-          ];
-
-        } catch (error) {
-
-          window[
-            callbackName
-          ] = undefined;
-        }
+    function cleanup() {
+      clearTimeout(timeout);
+      if (script.parentNode) {
+        script.parentNode.removeChild(script);
       }
-
-
-      window[
-        callbackName
-      ] =
-        function(response) {
-
-          if (completed) return;
-
-          completed = true;
-
-          cleanup();
-
-          if (
-            response &&
-            response.success === false
-          ) {
-
-            reject(
-              new Error(
-                response.message ||
-                'The server returned an error.'
-              )
-            );
-
-            return;
-          }
-
-
-          resolve(
-            response
-          );
-        };
-
-
-      script.onerror =
-        function() {
-
-          if (completed) return;
-
-          completed = true;
-
-          cleanup();
-
-          reject(
-            new Error(
-              'Unable to connect to the Glow & Glam server.'
-            )
-          );
-        };
-
-
-      const query =
-        new URLSearchParams();
-
-
-      query.set(
-        'action',
-        'api'
-      );
-
-
-      query.set(
-        'request',
-        request
-      );
-
-
-      query.set(
-        'callback',
-        callbackName
-      );
-
-
-      Object.keys(
-        parameters
-      ).forEach(
-        function(key) {
-
-          const value =
-            parameters[key];
-
-          if (
-            value !== undefined &&
-            value !== null
-          ) {
-
-            query.set(
-              key,
-              String(value)
-            );
-          }
-
-        }
-      );
-
-
-      script.src =
-        API_URL +
-        '?' +
-        query.toString();
-
-
-      document
-        .head
-        .appendChild(
-          script
-        );
-
+      try {
+        delete window[callbackName];
+      } catch (error) {
+        window[callbackName] = undefined;
+      }
     }
-  );
-}
 
+    window[callbackName] = function(response) {
+      if (completed) return;
+      completed = true;
+      cleanup();
+
+      if (response && response.success === false) {
+        reject(new Error(response.message || 'The server returned an error.'));
+        return;
+      }
+      resolve(response);
+    };
+
+    script.onerror = function() {
+      if (completed) return;
+      completed = true;
+      cleanup();
+      reject(new Error('Unable to connect to the Glow & Glam server.'));
+    };
+
+    const query = new URLSearchParams();
+    query.set('action', 'api');
+    query.set('request', request);
+    query.set('callback', callbackName);
+
+    Object.keys(parameters).forEach(function(key) {
+      const value = parameters[key];
+      if (value !== undefined && value !== null) {
+        query.set(key, String(value));
+      }
+    });
+
+    script.src = API_URL + '?' + query.toString();
+    document.head.appendChild(script);
+  });
+}
 
 /* =========================================================
    INITIAL LOAD
    ========================================================= */
-
-window.addEventListener(
-  'load',
-  loadBookingData
-);
-
+window.addEventListener('load', loadBookingData);
 
 async function loadBookingData() {
-
-  serviceSelect.innerHTML =
-    '<option value="">Loading services...</option>';
-
-  serviceSelect.disabled =
-    true;
-
+  serviceTypeSelect.innerHTML = '<option value="">Loading types...</option>';
+  serviceTypeSelect.disabled = true;
+  resetService();
 
   try {
+    const response = await apiRequest('getBookingData');
+    const data = response.data || {};
 
-    const response =
-      await apiRequest(
-        'getBookingData'
-      );
+    services = data.services || [];
+    agents = data.agents || [];
+    times = data.times || [];
 
-
-    const data =
-      response.data || {};
-
-
-    services =
-      data.services || [];
-
-
-    agents =
-      data.agents || [];
-
-
-    times =
-      data.times || [];
-
-
-    populateServices();
-
+    populateServiceTypes();
 
   } catch (error) {
-
-    showError(
-      'Unable to load booking information. ' +
-      error.message
-    );
-
+    showError('Unable to load booking information. ' + error.message);
   }
 }
 
-
 /* =========================================================
-   SERVICES
+   SERVICE TYPES & FILTERED SERVICES
    ========================================================= */
+function getServiceCategory(service) {
+  return String(
+    service.type ||
+    service.serviceType ||
+    service.category ||
+    'General'
+  ).trim();
+}
 
-function populateServices() {
+function populateServiceTypes() {
+  serviceTypeSelect.innerHTML = '<option value="">-- Choose a type --</option>';
 
-  serviceSelect.innerHTML =
-    '<option value="">-- Choose a service --</option>';
-
-
-  if (
-    !services ||
-    services.length === 0
-  ) {
-
-    serviceSelect.innerHTML =
-      '<option value="">No services available</option>';
-
-    serviceSelect.disabled =
-      true;
-
+  if (!services || services.length === 0) {
+    serviceTypeSelect.innerHTML = '<option value="">No service types available</option>';
+    serviceTypeSelect.disabled = true;
+    resetService();
     return;
   }
 
+  // Extract unique service types while preserving order
+  const uniqueTypes = [...new Set(services.map(getServiceCategory))];
 
-  services.forEach(
-    function(service) {
+  uniqueTypes.forEach(function(type) {
+    const option = document.createElement('option');
+    option.value = type;
+    option.textContent = type;
+    serviceTypeSelect.appendChild(option);
+  });
 
-      const option =
-        document.createElement(
-          'option'
-        );
-
-
-      option.value =
-        service.id;
-
-
-      option.textContent =
-        service.name +
-        ' (R' +
-        Number(
-          service.price
-        ).toFixed(0) +
-        ')';
-
-
-      serviceSelect.appendChild(
-        option
-      );
-
-    }
-  );
-
-
-  serviceSelect.disabled =
-    false;
+  serviceTypeSelect.disabled = false;
+  resetService();
 }
 
+serviceTypeSelect.addEventListener('change', function() {
+  clearMessage();
+  const selectedType = serviceTypeSelect.value;
+
+  if (!selectedType) {
+    resetService();
+    return;
+  }
+
+  const filteredServices = services.filter(function(service) {
+    return getServiceCategory(service) === selectedType;
+  });
+
+  populateServices(filteredServices);
+});
+
+function populateServices(filteredServices) {
+  serviceSelect.innerHTML = '<option value="">-- Choose a service --</option>';
+
+  if (!filteredServices || filteredServices.length === 0) {
+    serviceSelect.innerHTML = '<option value="">No services in this category</option>';
+    serviceSelect.disabled = true;
+    return;
+  }
+
+  filteredServices.forEach(function(service) {
+    const option = document.createElement('option');
+    option.value = service.id;
+    option.textContent = service.name + ' (R' + Number(service.price).toFixed(0) + ')';
+    serviceSelect.appendChild(option);
+  });
+
+  serviceSelect.disabled = false;
+}
+
+function resetService() {
+  serviceSelect.innerHTML = '<option value="">Select a type first</option>';
+  serviceSelect.disabled = true;
+}
 
 /* =========================================================
    DATE CHANGE
    ========================================================= */
+dateInput.addEventListener('change', async function() {
+  clearMessage();
+  resetAgent();
 
-dateInput.addEventListener(
-  'change',
-  async function() {
-
-    clearMessage();
-
-    resetAgent();
-
-
-    const date =
-      dateInput.value;
-
-
-    if (!date) {
-
-      resetTime();
-
-      return;
-    }
-
-
-    timeLoading.textContent =
-      'Checking available times...';
-
-
-    timeSelect.disabled =
-      true;
-
-
-    try {
-
-      const response =
-        await apiRequest(
-          'getAvailableTimes',
-          {
-            bookingDate: date
-          }
-        );
-
-
-      timeLoading.textContent =
-        '';
-
-
-      populateTimes(
-        response.data || []
-      );
-
-
-    } catch (error) {
-
-      timeLoading.textContent =
-        '';
-
-      resetTime();
-
-      showError(
-        error.message
-      );
-
-    }
-
+  const date = dateInput.value;
+  if (!date) {
+    resetTime();
+    return;
   }
-);
 
+  timeLoading.textContent = 'Checking available times...';
+  timeSelect.disabled = true;
+
+  try {
+    const response = await apiRequest('getAvailableTimes', { bookingDate: date });
+    timeLoading.textContent = '';
+    populateTimes(response.data || []);
+  } catch (error) {
+    timeLoading.textContent = '';
+    resetTime();
+    showError(error.message);
+  }
+});
 
 /* =========================================================
    POPULATE TIMES
    ========================================================= */
+function populateTimes(availableTimes) {
+  timeSelect.innerHTML = '<option value="">-- Select Time --</option>';
 
-function populateTimes(
-  availableTimes
-) {
-
-  timeSelect.innerHTML =
-    '<option value="">-- Select Time --</option>';
-
-
-  if (
-    !availableTimes ||
-    availableTimes.length === 0
-  ) {
-
-    timeSelect.innerHTML =
-      '<option value="">No times available</option>';
-
-    timeSelect.disabled =
-      true;
-
+  if (!availableTimes || availableTimes.length === 0) {
+    timeSelect.innerHTML = '<option value="">No times available</option>';
+    timeSelect.disabled = true;
     return;
   }
 
+  availableTimes.forEach(function(time) {
+    const option = document.createElement('option');
+    option.value = time;
+    option.textContent = convertTimeToDisplay(time);
+    timeSelect.appendChild(option);
+  });
 
-  availableTimes.forEach(
-    function(time) {
-
-      const option =
-        document.createElement(
-          'option'
-        );
-
-
-      option.value =
-        time;
-
-
-      option.textContent =
-        convertTimeToDisplay(
-          time
-        );
-
-
-      timeSelect.appendChild(
-        option
-      );
-
-    }
-  );
-
-
-  timeSelect.disabled =
-    false;
+  timeSelect.disabled = false;
 }
-
 
 /* =========================================================
    TIME CHANGE
    ========================================================= */
+timeSelect.addEventListener('change', async function() {
+  clearMessage();
+  resetAgent();
 
-timeSelect.addEventListener(
-  'change',
-  async function() {
+  const date = dateInput.value;
+  const time = timeSelect.value;
+  if (!date || !time) return;
 
-    clearMessage();
+  agentLoading.textContent = 'Checking available agents...';
+  agentSelect.disabled = true;
 
+  try {
+    const response = await apiRequest('getAvailableAgents', {
+      bookingDate: date,
+      bookingTime: time
+    });
+    agentLoading.textContent = '';
+    populateAgents(response.data || []);
+  } catch (error) {
+    agentLoading.textContent = '';
     resetAgent();
-
-
-    const date =
-      dateInput.value;
-
-    const time =
-      timeSelect.value;
-
-
-    if (!date || !time) {
-
-      return;
-    }
-
-
-    agentLoading.textContent =
-      'Checking available agents...';
-
-
-    agentSelect.disabled =
-      true;
-
-
-    try {
-
-      const response =
-        await apiRequest(
-          'getAvailableAgents',
-          {
-            bookingDate: date,
-            bookingTime: time
-          }
-        );
-
-
-      agentLoading.textContent =
-        '';
-
-
-      populateAgents(
-        response.data || []
-      );
-
-
-    } catch (error) {
-
-      agentLoading.textContent =
-        '';
-
-      resetAgent();
-
-      showError(
-        error.message
-      );
-
-    }
-
+    showError(error.message);
   }
-);
-
+});
 
 /* =========================================================
    POPULATE AGENTS
    ========================================================= */
+function populateAgents(availableAgents) {
+  agentSelect.innerHTML = '<option value="">-- Choose an expert --</option>';
 
-function populateAgents(
-  availableAgents
-) {
-
-  agentSelect.innerHTML =
-    '<option value="">-- Choose an expert --</option>';
-
-
-  if (
-    !availableAgents ||
-    availableAgents.length === 0
-  ) {
-
-    agentSelect.innerHTML =
-      '<option value="">No agents available</option>';
-
-    agentSelect.disabled =
-      true;
-
+  if (!availableAgents || availableAgents.length === 0) {
+    agentSelect.innerHTML = '<option value="">No agents available</option>';
+    agentSelect.disabled = true;
     return;
   }
 
+  const anyOption = document.createElement('option');
+  anyOption.value = 'Any Available Agent';
+  anyOption.textContent = 'Any Available Agent';
+  agentSelect.appendChild(anyOption);
 
-  /*
-   * Any available agent
-   */
+  availableAgents.forEach(function(agent) {
+    const option = document.createElement('option');
+    option.value = agent.name;
+    option.textContent = agent.specialty
+      ? agent.name + ' (' + agent.specialty + ')'
+      : agent.name;
+    agentSelect.appendChild(option);
+  });
 
-  const anyOption =
-    document.createElement(
-      'option'
-    );
-
-
-  anyOption.value =
-    'Any Available Agent';
-
-
-  anyOption.textContent =
-    'Any Available Agent';
-
-
-  agentSelect.appendChild(
-    anyOption
-  );
-
-
-  /*
-   * Individual agents
-   */
-
-  availableAgents.forEach(
-    function(agent) {
-
-      const option =
-        document.createElement(
-          'option'
-        );
-
-
-      option.value =
-        agent.name;
-
-
-      option.textContent =
-        agent.specialty
-          ? agent.name +
-            ' (' +
-            agent.specialty +
-            ')'
-          : agent.name;
-
-
-      agentSelect.appendChild(
-        option
-      );
-
-    }
-  );
-
-
-  agentSelect.disabled =
-    false;
+  agentSelect.disabled = false;
 }
-
 
 /* =========================================================
    FORM SUBMISSION
    ========================================================= */
-
-bookingForm.addEventListener(
-  'submit',
-  async function(e) {
-
-    e.preventDefault();
-
-
-    clearMessage();
-
-
-    const selectedService =
-      services.find(
-        function(service) {
-
-          return (
-            String(service.id) ===
-            String(serviceSelect.value)
-          );
-
-        }
-      );
-
-
-    if (!selectedService) {
-
-      showError(
-        'Please select a service.'
-      );
-
-      return;
-    }
-
-
-    const bookingData = {
-
-      clientName:
-        document
-          .getElementById(
-            'clientName'
-          )
-          .value
-          .trim(),
-
-
-      clientEmail:
-        document
-          .getElementById(
-            'clientEmail'
-          )
-          .value
-          .trim(),
-
-
-      clientPhone:
-        document
-          .getElementById(
-            'clientPhone'
-          )
-          .value
-          .trim(),
-
-
-      serviceId:
-        selectedService.id,
-
-
-      serviceName:
-        selectedService.name,
-
-
-      servicePrice:
-        selectedService.price,
-
-
-      agent:
-        agentSelect.value,
-
-
-      bookingDate:
-        dateInput.value,
-
-
-      bookingTime:
-        timeSelect.value,
-
-
-      specialNotes:
-        document
-          .getElementById(
-            'specialNotes'
-          )
-          .value
-          .trim()
-
-    };
-
-
-    if (!bookingData.agent) {
-
-      showError(
-        'Please select an agent.'
-      );
-
-      return;
-    }
-
-
-    if (!bookingData.bookingDate) {
-
-      showError(
-        'Please select a booking date.'
-      );
-
-      return;
-    }
-
-
-    if (!bookingData.bookingTime) {
-
-      showError(
-        'Please select a booking time.'
-      );
-
-      return;
-    }
-
-
-    submitBtn.disabled =
-      true;
-
-
-    submitBtn.textContent =
-      'Processing Booking...';
-
-
-    try {
-
-      const response =
-        await apiRequest(
-          'saveBooking',
-          {
-            data:
-              JSON.stringify(
-                bookingData
-              )
-          }
-        );
-
-
-      if (
-        response &&
-        response.success
-      ) {
-
-        statusMessage.innerHTML =
-
-          'Thank you! Your booking request has been received.' +
-
-          '<div class="booking-reference">' +
-
-          'Booking Reference: <strong>' +
-
-          escapeHtml(
-            response.bookingId
-          ) +
-
-          '</strong><br>' +
-
-          'Agent: <strong>' +
-
-          escapeHtml(
-            response.agent
-          ) +
-
-          '</strong>' +
-
-          '</div>';
-
-
-        statusMessage.className =
-          'message success';
-
-
-        bookingForm.reset();
-
-
-        dateInput.min =
-          getTodayLocal();
-
-
-        resetTime();
-
-        resetAgent();
-
-
-      } else {
-
-        showError(
-          response &&
-          response.message
-            ? response.message
-            : 'The booking could not be completed.'
-        );
-
-
-        refreshAvailability();
-
-      }
-
-
-    } catch (error) {
-
-      showError(
-        'Booking failed: ' +
-        error.message
-      );
-
-
-      refreshAvailability();
-
-
-    } finally {
-
-      submitBtn.disabled =
-        false;
-
-
-      submitBtn.textContent =
-        'Confirm Booking';
-
-    }
-
+bookingForm.addEventListener('submit', async function(e) {
+  e.preventDefault();
+  clearMessage();
+
+  const selectedService = services.find(function(service) {
+    return String(service.id) === String(serviceSelect.value);
+  });
+
+  if (!selectedService) {
+    showError('Please select a service.');
+    return;
   }
-);
 
+  const bookingData = {
+    clientName: document.getElementById('clientName').value.trim(),
+    clientEmail: document.getElementById('clientEmail').value.trim(),
+    clientPhone: document.getElementById('clientPhone').value.trim(),
+    serviceType: getServiceCategory(selectedService),
+    serviceId: selectedService.id,
+    serviceName: selectedService.name,
+    servicePrice: selectedService.price,
+    agent: agentSelect.value,
+    bookingDate: dateInput.value,
+    bookingTime: timeSelect.value,
+    specialNotes: document.getElementById('specialNotes').value.trim()
+  };
+
+  if (!bookingData.agent) {
+    showError('Please select an agent.');
+    return;
+  }
+
+  if (!bookingData.bookingDate) {
+    showError('Please select a booking date.');
+    return;
+  }
+
+  if (!bookingData.bookingTime) {
+    showError('Please select a booking time.');
+    return;
+  }
+
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Processing Booking...';
+
+  try {
+    const response = await apiRequest('saveBooking', {
+      data: JSON.stringify(bookingData)
+    });
+
+    if (response && response.success) {
+      statusMessage.innerHTML =
+        'Thank you! Your booking request has been received.' +
+        '<div class="booking-reference">' +
+        'Booking Reference: <strong>' + escapeHtml(response.bookingId) + '</strong><br>' +
+        'Agent: <strong>' + escapeHtml(response.agent) + '</strong>' +
+        '</div>';
+
+      statusMessage.className = 'message success';
+
+      bookingForm.reset();
+      dateInput.min = getTodayLocal();
+      resetService();
+      resetTime();
+      resetAgent();
+    } else {
+      showError(
+        response && response.message
+          ? response.message
+          : 'The booking could not be completed.'
+      );
+      refreshAvailability();
+    }
+  } catch (error) {
+    showError('Booking failed: ' + error.message);
+    refreshAvailability();
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Confirm Booking';
+  }
+});
 
 /* =========================================================
    REFRESH AVAILABILITY
    ========================================================= */
-
 async function refreshAvailability() {
-
-  const date =
-    dateInput.value;
-
-
+  const date = dateInput.value;
   if (!date) {
-
     resetTime();
-
     return;
   }
 
-
   try {
-
-    const response =
-      await apiRequest(
-        'getAvailableTimes',
-        {
-          bookingDate: date
-        }
-      );
-
-
-    populateTimes(
-      response.data || []
-    );
-
-
+    const response = await apiRequest('getAvailableTimes', { bookingDate: date });
+    populateTimes(response.data || []);
     resetAgent();
-
-
   } catch (error) {
-
-    showError(
-      error.message
-    );
+    showError(error.message);
   }
 }
 
-
 /* =========================================================
-   RESET TIME
+   RESET TIME & AGENT
    ========================================================= */
-
 function resetTime() {
-
-  timeSelect.innerHTML =
-    '<option value="">Select a date first</option>';
-
-  timeSelect.disabled =
-    true;
-
-  timeLoading.textContent =
-    '';
-
+  timeSelect.innerHTML = '<option value="">Select a date first</option>';
+  timeSelect.disabled = true;
+  timeLoading.textContent = '';
 }
-
-
-/* =========================================================
-   RESET AGENT
-   ========================================================= */
 
 function resetAgent() {
-
-  agentSelect.innerHTML =
-    '<option value="">Select a time first</option>';
-
-  agentSelect.disabled =
-    true;
-
-  agentLoading.textContent =
-    '';
-
+  agentSelect.innerHTML = '<option value="">Select a time first</option>';
+  agentSelect.disabled = true;
+  agentLoading.textContent = '';
 }
-
 
 /* =========================================================
    TIME DISPLAY
    ========================================================= */
-
-function convertTimeToDisplay(
-  time
-) {
-
-  const parts =
-    String(time).split(':');
-
-
-  let hour =
-    parseInt(
-      parts[0],
-      10
-    );
-
-
-  const minutes =
-    parts[1] || '00';
-
-
-  const period =
-    hour >= 12
-      ? 'PM'
-      : 'AM';
-
-
-  hour =
-    hour % 12 || 12;
-
-
-  return (
-    String(hour) +
-    ':' +
-    minutes +
-    ' ' +
-    period
-  );
+function convertTimeToDisplay(time) {
+  const parts = String(time).split(':');
+  let hour = parseInt(parts[0], 10);
+  const minutes = parts[1] || '00';
+  const period = hour >= 12 ? 'PM' : 'AM';
+  hour = hour % 12 || 12;
+  return String(hour) + ':' + minutes + ' ' + period;
 }
-
 
 /* =========================================================
    HTML ESCAPING
    ========================================================= */
-
 function escapeHtml(value) {
-
-  return String(
-    value ?? ''
-  )
-    .replace(
-      /&/g,
-      '&amp;'
-    )
-    .replace(
-      /</g,
-      '&lt;'
-    )
-    .replace(
-      />/g,
-      '&gt;'
-    )
-    .replace(
-      /"/g,
-      '&quot;'
-    )
-    .replace(
-      /'/g,
-      '&#039;'
-    );
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
 }
-
 
 /* =========================================================
    MESSAGES
    ========================================================= */
-
-function showError(
-  message
-) {
-
-  statusMessage.textContent =
-    message;
-
-  statusMessage.className =
-    'message error';
+function showError(message) {
+  statusMessage.textContent = message;
+  statusMessage.className = 'message error';
 }
-
 
 function clearMessage() {
-
-  statusMessage.textContent =
-    '';
-
-  statusMessage.className =
-    'message';
+  statusMessage.textContent = '';
+  statusMessage.className = 'message';
 }
-
 </script>
 
 </body>
-
 </html>
