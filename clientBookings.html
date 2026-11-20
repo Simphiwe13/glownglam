@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glow & Glam | Agent Bookings Workspace</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #faf5f1;
+      --cream-deep: #f1e5df;
+      --blush: #ead5d0;
+      --rose: #b87580;
+      --rose-dark: #955964;
+      --charcoal: #302729;
+      --muted: #887b79;
+      --line: #e9dcd6;
+      --white: #fffdfb;
+
+      --success-bg: #e8f3eb;
+      --success-text: #315f42;
+
+      --error-bg: #fae9e8;
+      --error-text: #984d4b;
+
+      --pending-bg: #fdf3e7;
+      --pending-text: #8c5a1e;
+
+      --shadow: 0 24px 70px rgba(69, 43, 45, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      min-height: 100vh;
+      padding: 34px 22px;
+      color: var(--charcoal);
+      background:
+        radial-gradient(circle at 8% 8%, rgba(234,213,208,.62), transparent 28rem),
+        radial-gradient(circle at 94% 88%, rgba(184,117,128,.10), transparent 26rem),
+        var(--cream);
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .page-shell {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 26px;
+      padding: 0 4px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--charcoal);
+      color: var(--cream);
+      font-family: 'Playfair Display', serif;
+      font-size: 21px;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      letter-spacing: -.5px;
+    }
+
+    .brand-name span {
+      color: var(--rose-dark);
+    }
+
+    .top-note {
+      color: var(--muted);
+      font-size: 12px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .portal-card {
+      border: 1px solid rgba(184,117,128,.16);
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .portal-header {
+      padding: 36px 40px 28px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(234,213,208,.28), rgba(255,253,251,1));
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--rose-dark);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 26px;
+      height: 1px;
+      background: var(--rose);
+    }
+
+    .portal-header h1 {
+      margin-top: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 38px);
+      font-weight: 600;
+      letter-spacing: -.7px;
+    }
+
+    .portal-header h1 em {
+      color: var(--rose-dark);
+      font-style: italic;
+    }
+
+    .portal-header p {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .controls-bar {
+      padding: 24px 40px;
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr auto;
+      gap: 14px;
+      align-items: end;
+    }
+
+    .form-group {
+      min-width: 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #514548;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    select,
+    input {
+      width: 100%;
+      min-height: 46px;
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      outline: none;
+      background: #fff;
+      color: var(--charcoal);
+      font: 13px 'DM Sans', sans-serif;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    select:focus,
+    input:focus {
+      border-color: var(--rose);
+      box-shadow: 0 0 0 4px rgba(184,117,128,.11);
+    }
+
+    .btn {
+      min-height: 46px;
+      padding: 10px 18px;
+      border: 0;
+      border-radius: 10px;
+      font: 700 12px 'DM Sans', sans-serif;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background .2s, transform .15s, opacity .2s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: .55;
+      cursor: not-allowed;
+    }
+
+    .btn-refresh {
+      background: var(--cream-deep);
+      color: var(--charcoal);
+      border: 1px solid var(--line);
+    }
+
+    .btn-refresh:hover:not(:disabled) {
+      background: var(--blush);
+    }
+
+    .btn-approve {
+      background: var(--success-text);
+      color: #fff;
+      min-height: 38px;
+      padding: 8px 14px;
+      font-size: 11px;
+    }
+
+    .btn-approve:hover:not(:disabled) {
+      background: #244932;
+    }
+
+    .btn-decline {
+      background: var(--error-bg);
+      color: var(--error-text);
+      border: 1px solid rgba(152,77,75,.25);
+      min-height: 38px;
+      padding: 8px 14px;
+      font-size: 11px;
+    }
+
+    .btn-decline:hover:not(:disabled) {
+      background: #f4d6d4;
+    }
+
+    .portal-body {
+      padding: 32px 40px 40px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    .stat-box {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--cream);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .stat-value {
+      margin-top: 6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .message {
+      display: none;
+      margin-bottom: 20px;
+      padding: 14px 16px;
+      border-radius: 10px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .success {
+      display: block;
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .error {
+      display: block;
+      background: var(--error-bg);
+      color: var(--error-text);
+    }
+
+    .bookings-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .booking-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr auto;
+      gap: 18px;
+      align-items: center;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .booking-item:hover {
+      border-color: var(--blush);
+      box-shadow: 0 10px 28px rgba(69, 43, 45, .05);
+    }
+
+    .booking-top {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 6px;
+    }
+
+    .booking-ref {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.1px;
+      color: var(--rose-dark);
+      background: var(--cream);
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+    }
+
+    .client-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .service-line {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .contact-line,
+    .notes-line {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .notes-line {
+      margin-top: 4px;
+      color: #675b5d;
+    }
+
+    .schedule-col {
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .schedule-col strong {
+      color: var(--charcoal);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .badge-pending {
+      background: var(--pending-bg);
+      color: var(--pending-text);
+    }
+
+    .badge-approved {
+      background: var(--success-bg);
+      color: var(--success-text);
+    }
+
+    .badge-declined,
+    .badge-cancelled {
+      background: var(--error-bg);
+      color: var(--error-text);
+    }
+
+    .badge-completed {
+      background: var(--cream-deep);
+      color: var(--charcoal);
+    }
+
+    .actions-col {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 130px;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 48px 20px;
+      border: 1px dashed var(--line);
+      border-radius: 16px;
+      background: var(--cream);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .controls-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .booking-item {
+        grid-template-columns: 1fr;
+      }
+
+      .actions-col {
+        flex-direction: row;
+        min-width: 0;
+      }
+    }
+
+    @media (max-width: 560px) {
+      body {
+        padding: 18px 12px;
+      }
+
+      .portal-header,
+      .controls-bar,
+      .portal-body {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .controls-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">G</div>
+        <div class="brand-name">Glow <span>&</span> Glam</div>
+      </div>
+      <div class="top-note">Beauty Agent Workspace</div>
+    </header>
+
+    <section class="portal-card">
+      <div class="portal-header">
+        <div>
+          <div class="eyebrow">Appointment Schedule</div>
+          <h1>Your client <em>bookings.</em></h1>
+          <p>Select your profile to review incoming requests, approve confirmed slots, or decline appointments.</p>
+        </div>
+      </div>
+
+      <div class="controls-bar">
+        <div class="form-group">
+          <label for="agentFilter">Beauty Agent</label>
+          <select id="agentFilter">
+            <option value="">Loading agents...</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="statusFilter">Status Filter</label>
+          <select id="statusFilter">
+            <option value="ALL">All Statuses</option>
+            <option value="Pending" selected>Pending Only</option>
+            <option value="Approved">Approved</option>
+            <option value="Declined">Declined</option>
+            <option value="Cancelled">Cancelled</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="searchInput">Search Client or Service</label>
+          <input type="text" id="searchInput" placeholder="e.g. Jane or Gel Manicure">
+        </div>
+
+        <button type="button" id="refreshBtn" class="btn btn-refresh">Refresh</button>
+      </div>
+
+      <div class="portal-body">
+        <div class="stats-row">
+          <div class="stat-box">
+            <div class="stat-label">Total Assigned</div>
+            <div class="stat-value" id="statTotal">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Pending</div>
+            <div class="stat-value" id="statPending">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Approved</div>
+            <div class="stat-value" id="statApproved">0</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-label">Declined</div>
+            <div class="stat-value" id="statDeclined">0</div>
+          </div>
+        </div>
+
+        <div id="statusBanner" class="message" role="status" aria-live="polite"></div>
+
+        <div id="bookingsContainer" class="bookings-list">
+          <div class="empty-state">Select an agent to view bookings.</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzF-fvmrbIjG5NbYxRAdcbq7gKFZSrwKO3MITbs4tyUTM8w93kZOZ96jXJhAQxsKjUxHA/exec';
+
+    let allAgentBookings = [];
+    let jsonpCounter = 0;
+
+    const agentFilter = document.getElementById('agentFilter');
+    const statusFilter = document.getElementById('statusFilter');
+    const searchInput = document.getElementById('searchInput');
+    const refreshBtn = document.getElementById('refreshBtn');
+    const bookingsContainer = document.getElementById('bookingsContainer');
+    const statusBanner = document.getElementById('statusBanner');
+
+    function apiRequest(request, parameters = {}) {
+      return new Promise(function(resolve, reject) {
+        jsonpCounter++;
+        const callbackName = 'glowGlamAgentCb_' + Date.now() + '_' + jsonpCounter;
+        const script = document.createElement('script');
+        let completed = false;
+
+        const timeout = setTimeout(function() {
+          if (completed) return;
+          completed = true;
+          cleanup();
+          reject(new Error('Request timed out. Please try again.'));
+        }, 20000);
+
+        function cleanup() {
+          clearTimeout(timeout);
+          if (script.parentNode) script.parentNode.removeChild(script);
+          try { delete window[callbackName]; } catch (e) { window[callbackName] = undefined; }
+        }
+
+        window[callbackName] = function(response) {
+          if (completed) return;
+          completed = true;
+          cleanup();
+          if (response && response.success === false) {
+            reject(new Error(response.message || 'Server returned an error.'));
+            return;
+          }
+          resolve(response);
+        };
+
+        script.onerror = function() {
+          if (completed) return;
+          completed = true;
+          cleanup();
+          reject(new Error('Unable to reach the Glow & Glam server.'));
+        };
+
+        const query = new URLSearchParams({
+          action: 'api',
+          request: request,
+          callback: callbackName
+        });
+
+        Object.keys(parameters).forEach(function(key) {
+          if (parameters[key] !== undefined && parameters[key] !== null) {
+            query.set(key, String(parameters[key]));
+          }
+        });
+
+        script.src = API_URL + '?' + query.toString();
+        document.head.appendChild(script);
+      });
+    }
+
+    function showBanner(msg, type) {
+      statusBanner.textContent = msg;
+      statusBanner.className = 'message ' + type;
+    }
+
+    function clearBanner() {
+      statusBanner.textContent = '';
+      statusBanner.className = 'message';
+    }
+
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function formatDisplayTime(timeStr) {
+      const parts = String(timeStr || '').split(':');
+      if (parts.length < 2) return timeStr || '';
+      let hour = parseInt(parts[0], 10);
+      if (isNaN(hour)) return timeStr;
+      const mins = parts[1];
+      const period = hour >= 12 ? 'PM' : 'AM';
+      hour = hour % 12 || 12;
+      return hour + ':' + mins + ' ' + period;
+    }
+
+    async function initPortal() {
+      agentFilter.innerHTML = '<option value="">Loading agents...</option>';
+      try {
+        const res = await apiRequest('getBookingData');
+        const agents = (res.data && res.data.agents) || [];
+        agentFilter.innerHTML = '<option value="">-- Select your name --</option>';
+
+        agents.forEach(function(agent) {
+          const opt = document.createElement('option');
+          opt.value = agent.name;
+          opt.textContent = agent.specialty ? agent.name + ' (' + agent.specialty + ')' : agent.name;
+          agentFilter.appendChild(opt);
+        });
+
+        // Optional: pre-select via ?agent=Sarah in URL
+        const urlAgent = new URLSearchParams(window.location.search).get('agent');
+        if (urlAgent) {
+          const match = Array.from(agentFilter.options).find(o => o.value.toLowerCase() === urlAgent.toLowerCase());
+          if (match) {
+            agentFilter.value = match.value;
+            await loadBookingsForAgent(match.value);
+          }
+        }
+      } catch (err) {
+        showBanner('Could not load agents: ' + err.message, 'error');
+      }
+    }
+
+    async function loadBookingsForAgent(agentName) {
+      clearBanner();
+      if (!agentName) {
+        allAgentBookings = [];
+        updateStats([]);
+        bookingsContainer.innerHTML = '<div class="empty-state">Select an agent above to view bookings.</div>';
+        return;
+      }
+
+      bookingsContainer.innerHTML = '<div class="empty-state">Loading bookings for ' + escapeHtml(agentName) + '...</div>';
+
+      try {
+        const res = await apiRequest('getAgentBookings', { agentName: agentName });
+        allAgentBookings = res.data || [];
+        updateStats(allAgentBookings);
+        renderFilteredBookings();
+      } catch (err) {
+        showBanner('Failed to load bookings: ' + err.message, 'error');
+        bookingsContainer.innerHTML = '<div class="empty-state">Unable to load bookings right now.</div>';
+      }
+    }
+
+    function updateStats(list) {
+      document.getElementById('statTotal').textContent = list.length;
+      document.getElementById('statPending').textContent = list.filter(b => b.status === 'Pending').length;
+      document.getElementById('statApproved').textContent = list.filter(b => b.status === 'Approved').length;
+      document.getElementById('statDeclined').textContent = list.filter(b => b.status === 'Declined').length;
+    }
+
+    function renderFilteredBookings() {
+      const statusVal = statusFilter.value;
+      const query = searchInput.value.trim().toLowerCase();
+
+      const filtered = allAgentBookings.filter(function(b) {
+        const matchesStatus = statusVal === 'ALL' || b.status === statusVal;
+        const haystack = [
+          b.bookingId,
+          b.clientName,
+          b.clientPhone,
+          b.clientEmail,
+          b.service,
+          b.notes
+        ].join(' ').toLowerCase();
+        const matchesQuery = !query || haystack.includes(query);
+        return matchesStatus && matchesQuery;
+      });
+
+      if (!filtered.length) {
+        bookingsContainer.innerHTML = '<div class="empty-state">No bookings match the selected filters.</div>';
+        return;
+      }
+
+      bookingsContainer.innerHTML = filtered.map(function(b) {
+        const statusClass = 'badge-' + String(b.status || 'pending').toLowerCase();
+        const isPending = b.status === 'Pending';
+
+        return `
+          <article class="booking-item" data-booking-id="${escapeHtml(b.bookingId)}">
+            <div>
+              <div class="booking-top">
+                <span class="booking-ref">${escapeHtml(b.bookingId)}</span>
+                <span class="client-name">${escapeHtml(b.clientName)}</span>
+                <span class="badge ${statusClass}">${escapeHtml(b.status)}</span>
+              </div>
+              <div class="service-line">${escapeHtml(b.service)}</div>
+              <div class="contact-line">${escapeHtml(b.clientPhone)} &bull; ${escapeHtml(b.clientEmail)}</div>
+              ${b.notes && b.notes !== 'None' ? `<div class="notes-line"><strong>Notes:</strong> ${escapeHtml(b.notes)}</div>` : ''}
+            </div>
+
+            <div class="schedule-col">
+              <div><strong>Date:</strong> ${escapeHtml(b.bookingDate)}</div>
+              <div><strong>Time:</strong> ${escapeHtml(formatDisplayTime(b.bookingTime))}</div>
+            </div>
+
+            <div class="actions-col">
+              <button
+                type="button"
+                class="btn btn-approve"
+                onclick="handleDecision('${escapeHtml(b.bookingId)}', 'Approved', this)"
+                ${!isPending ? 'disabled' : ''}
+              >Approve</button>
+              <button
+                type="button"
+                class="btn btn-decline"
+                onclick="handleDecision('${escapeHtml(b.bookingId)}', 'Declined', this)"
+                ${!isPending ? 'disabled' : ''}
+              >Decline</button>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    async function handleDecision(bookingId, newStatus, btnEl) {
+      clearBanner();
+      const card = btnEl.closest('.booking-item');
+      const buttons = card ? card.querySelectorAll('button') : [];
+      buttons.forEach(btn => btn.disabled = true);
+
+      try {
+        const res = await apiRequest('updateBookingStatus', {
+          bookingId: bookingId,
+          status: newStatus,
+          agentName: agentFilter.value
+        });
+
+        showBanner(
+          res.message || ('Booking ' + bookingId + ' marked as ' + newStatus + '.'),
+          'success'
+        );
+
+        await loadBookingsForAgent(agentFilter.value);
+      } catch (err) {
+        showBanner('Could not update booking: ' + err.message, 'error');
+        buttons.forEach(btn => btn.disabled = false);
+      }
+    }
+
+    agentFilter.addEventListener('change', function() {
+      loadBookingsForAgent(agentFilter.value);
+    });
+
+    statusFilter.addEventListener('change', renderFilteredBookings);
+    searchInput.addEventListener('input', renderFilteredBookings);
+    refreshBtn.addEventListener('click', function() {
+      loadBookingsForAgent(agentFilter.value);
+    });
+
+    window.addEventListener('load', initPortal);
+  </script>
+</body>
+
+</html>
